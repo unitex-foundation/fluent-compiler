@@ -1,0 +1,42 @@
+{
+  "name": "fluent-compiler",
+  "productName": "fluent-compiler",
+  "description": "Compiler from TypeScript to Fluent Translation List (FTL)",
+  "author": {
+    "name": "Grigorii Lutkov",
+    "email": "friend.lga@gmail.com"
+  },
+  "version": "0.0.1",
+  "homepage": "https://trulab.ru/grigorii-lutkov/fluent-compiler",
+  "repository": {
+    "type": "git",
+    "url": "https://trulab.ru/grigorii-lutkov/fluent-compiler.git"
+  },
+  "bugs": {
+    "url": "https://trulab.ru/grigorii-lutkov/fluent-compiler/-/issues"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "...",
+    "lint": "eslint --cache --rule 'import/order: [warn, { newlines-between: never }]' --ext=js,mjs,cjs,ts,mts,cts,d.ts",
+    "lint_all": "yarn lint_es './**/*.{js,mjs,cjs,ts,mts,cts,d.ts}'",
+    "lint_fix": "yarn lint_es --fix",
+    "lint_fix_all": "yarn lint_es_all --fix",
+    "format": "prettier --ignore-unknown --check",
+    "format_all": "yarn format ./",
+    "format_fix": "yarn format --write",
+    "format_fix_all": "yarn format_all --write",
+    "lint_format_fix_all": "yarn lint_fix_all && yarn format_fix_all"
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "4.4.1",
+    "@types/node": "22.15.0",
+    "eslint": "9.29.0",
+    "eslint-plugin-import": "2.32.0",
+    "globals": "16.2.0",
+    "prettier": "3.5.3",
+    "typescript": "5.8.3"
+  },
+  "type": "module",
+  "packageManager": "yarn@4.9.2"
+}
