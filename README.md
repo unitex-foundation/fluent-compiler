@@ -1,0 +1,10 @@
+# flent-compiler
+
+Compiler from TypeScript to Fluent Translation List (FTL)
+
+# License
+
+Copyright (c) 2025 Grigorii Lutkov \<friend.lga@gmail.com\><br/>
+Copyright (c) fluent-compiler contributors
+
+Licensed under the [MIT License](/LICENSE.md)
