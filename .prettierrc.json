@@ -1,14 +1,15 @@
 {
   "endOfLine": "lf",
-  "semi": true,
-  "singleQuote": true,
-  "tabWidth": 2,
-  "useTabs": false,
+  "quoteProps": "consistent",
   "overrides": [
     { "files": "*.jsonc", "options": { "trailingComma": "none" } },
     {
       "files": "package.json",
       "options": { "parser": "json-stringify" }
     }
-  ]
+  ],
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "useTabs": false
 }

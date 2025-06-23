@@ -1,0 +1,10 @@
+// Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
+// Copyright (c) fluent-compiler contributors
+// Licensed under the MIT License
+
+import type { FluentMessageOptions } from 'src/fluent_message_options';
+
+export type FluentMessageValue = {
+  value: string;
+  options?: { [key: string]: FluentMessageOptions };
+};

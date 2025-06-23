@@ -1,6 +1,7 @@
 {
   "editor.renderWhitespace": "all",
   "editor.rulers": [80],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.detectIndentation": true,
   "editor.indentSize": "tabSize",
   "editor.insertSpaces": true,
@@ -26,12 +27,12 @@
     "**/.yarn": true,
     "/dist": true,
     "/node_modules": true,
-    "/temp": true,
+    "/temp": true
   },
   "search.useIgnoreFiles": true,
   "typescript.format.indentSwitchCase": true,
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "typescript.preferences.quoteStyle": "single",
   "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always"
 }

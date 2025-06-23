@@ -25,8 +25,9 @@
     "useDefineForClassFields": true,
     "verbatimModuleSyntax": true,
     "paths": {
-      "src/*": ["src/*"]
+      "src/*": ["src/*"],
+      "tests/*": ["tests/*"]
     }
   },
-  "include": ["./src/"]
+  "include": ["./src/", "./tests/"]
 }

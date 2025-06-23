@@ -100,6 +100,7 @@ function getConfigForSubdir(dirName) {
       '@stylistic/no-tabs': 'warn',
       '@stylistic/semi': ['warn', 'always'],
       '@stylistic/padded-blocks': ['warn', 'never'],
+      '@stylistic/quote-props': ['warn', 'consistent-as-needed'],
 
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-namespace': 'off',
