@@ -1,18 +1,18 @@
 // Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
 // Copyright (c) fluent-compiler contributors
 // Licensed under the MIT License
-import { FluentMessageType } from './fluent_message_type';
+import { FluentVariableType } from './fluent_variable_type';
 import { parseVariableType, searchVariableInstances } from './parser';
 // TODO:
 // - support attributes
 // - support linked attributes
 // - support namespaces
-export function compile(messages, isLoggingEnabled) {
+export function compile(messageList, isLoggingEnabled) {
     if (isLoggingEnabled) {
-        console.log('Begin: Compiling messages:');
-        console.log(messages);
+        console.log('Begin: Compiling message list:');
+        console.log(messageList);
     }
-    const result = Object.entries(messages)
+    const result = Object.entries(messageList)
         .map(([key, message]) => {
         const compiledMessage = compileMessageValue({
             message,
@@ -22,7 +22,7 @@ export function compile(messages, isLoggingEnabled) {
     })
         .join('\n');
     if (isLoggingEnabled) {
-        console.log('End: Compiled messages:');
+        console.log('End: Compiled message list:');
         console.log(result);
     }
     return result;
@@ -42,7 +42,7 @@ function compileMessageValue(args) {
         }
         return args.message;
     }
-    let messageBody = args.message.value;
+    let messageValue = args.message.value;
     const messageOptions = args.message.options;
     if (messageOptions === undefined) {
         if (args.isLoggingEnabled) {
@@ -50,17 +50,17 @@ function compileMessageValue(args) {
             console.log('- From');
             console.log(args.message);
             console.log('- To');
-            console.log(messageBody);
+            console.log(messageValue);
         }
-        return messageBody;
+        return messageValue;
     }
     if (args.isLoggingEnabled) {
         console.log('Compiling variables...');
     }
     for (const [name, options] of Object.entries(messageOptions)) {
-        messageBody = compileVariable({
+        messageValue = compileVariable({
             ...args,
-            messageBody,
+            messageValue,
             name,
             options,
         });
@@ -70,9 +70,9 @@ function compileMessageValue(args) {
         console.log('- From');
         console.log(args.message);
         console.log('- To');
-        console.log(messageBody);
+        console.log(messageValue);
     }
-    return messageBody;
+    return messageValue;
 }
 function compileVariable(args) {
     if (args.isLoggingEnabled) {
@@ -80,7 +80,7 @@ function compileVariable(args) {
         console.log('Parsing type...');
     }
     const type = parseVariableType({
-        messageBody: args.messageBody,
+        message: args.messageValue,
         name: args.name,
     });
     if (args.isLoggingEnabled) {
@@ -88,7 +88,7 @@ function compileVariable(args) {
         console.log('Looking for matches...');
     }
     const instances = searchVariableInstances({
-        messageBody: args.messageBody,
+        message: args.messageValue,
         name: args.name,
         type,
     });
@@ -97,19 +97,19 @@ function compileVariable(args) {
         console.log(instances);
         console.log('Compiling variable instances...');
     }
-    let messageBody = args.messageBody;
+    let messageValue = args.messageValue;
     let offset = 0;
     for (const instance of instances) {
-        messageBody = compileVariableInstance({
+        messageValue = compileVariableInstance({
             ...args,
-            messageBody,
+            messageValue,
             type,
             variable: instance.variable,
             index: instance.index + offset,
         });
-        offset = args.messageBody.length - messageBody.length;
+        offset = args.messageValue.length - messageValue.length;
     }
-    return messageBody;
+    return messageValue;
 }
 function compileVariableInstance(args) {
     if (args.isLoggingEnabled) {
@@ -125,17 +125,17 @@ function compileVariableInstance(args) {
         ...args,
         variable: functionalVariable,
     });
-    const sliceBefore = args.messageBody.slice(0, args.index);
-    const sliceAfter = args.messageBody.slice(args.index + args.variable.length);
-    const messageBody = sliceBefore + selectableVariable + sliceAfter;
+    const sliceBefore = args.messageValue.slice(0, args.index);
+    const sliceAfter = args.messageValue.slice(args.index + args.variable.length);
+    const messageValue = sliceBefore + selectableVariable + sliceAfter;
     if (args.isLoggingEnabled) {
         console.log('Updated message body:');
         console.log('- From');
-        console.log(args.messageBody);
+        console.log(args.messageValue);
         console.log('- To');
-        console.log(messageBody);
+        console.log(messageValue);
     }
-    return messageBody;
+    return messageValue;
 }
 function convertToShortVariableName(args) {
     const variable = args.variable.replace(`:${args.type}`, '');
@@ -145,11 +145,8 @@ function convertToShortVariableName(args) {
     return variable;
 }
 function convertToFunctionalVariable(args) {
-    if (args.type === FluentMessageType.List) {
-        throw new Error(`Unsupported type "${args.type}" of variable "${args.variable}"`);
-    }
-    if (args.type === FluentMessageType.Plural ||
-        args.type === FluentMessageType.Enum) {
+    if (args.type === FluentVariableType.Plural ||
+        args.type === FluentVariableType.Enum) {
         return args.variable;
     }
     const optionParams = 'params' in args.options ? args.options.params : [];

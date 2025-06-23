@@ -1,5 +1,3 @@
-import type { FluentMessageValue } from './fluent_message_value';
-export declare function compile(messages: {
-    [key: string]: FluentMessageValue;
-}, isLoggingEnabled?: boolean): string;
+import type { FluentMessageList } from './fluent_message_list';
+export declare function compile(messageList: FluentMessageList, isLoggingEnabled?: boolean): string;
 //# sourceMappingURL=compiler.d.ts.map

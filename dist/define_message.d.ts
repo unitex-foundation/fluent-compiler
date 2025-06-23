@@ -1,24 +1,22 @@
-import type { FluentDateMessageOptions } from './fluent_date_message_options';
-import type { FluentEnumMessageOptions } from './fluent_enum_message_options';
-import type { FluentListMessageOptions } from './fluent_list_message_options';
-import type { FluentNumberMessageOptions } from './fluent_number_message_options';
-import type { FluentPluralMessageOptions } from './fluent_plural_message_options';
-type ParseOptionType<ParamType extends string, ParamName extends string> = ParamType extends 'number' ? {
-    [K in ParamName]?: FluentNumberMessageOptions;
-} : ParamType extends 'plural' ? {
-    [K in ParamName]?: FluentPluralMessageOptions;
-} : ParamType extends 'datetime' ? {
-    [K in ParamName]?: FluentDateMessageOptions;
-} : ParamType extends 'enum' ? {
-    [K in ParamName]: FluentEnumMessageOptions;
-} : ParamType extends 'list' ? {
-    [K in ParamName]?: FluentListMessageOptions;
+import type { FluentDateVariableOptions } from './fluent_date_variable_options';
+import type { FluentEnumVariableOptions } from './fluent_enum_variable_options';
+import type { FluentNumberVariableOptions } from './fluent_number_variable_options';
+import type { FluentPluralVariableOptions } from './fluent_plural_variable_options';
+type VariableOptions<VariableName extends string, VariableType extends string> = VariableType extends 'number' ? {
+    [K in VariableName]?: FluentNumberVariableOptions;
+} : VariableType extends 'plural' ? {
+    [K in VariableName]?: FluentPluralVariableOptions;
+} : VariableType extends 'datetime' ? {
+    [K in VariableName]?: FluentDateVariableOptions;
+} : VariableType extends 'enum' ? {
+    [K in VariableName]: FluentEnumVariableOptions;
 } : never;
-type ExtractParamOptions<K extends string> = K extends `${string}{${infer Param}}${infer Rest}` ? Param extends `${infer Name}:${infer Type}` ? // if has a parameter with a type
-ParseOptionType<Type, Name> & ExtractParamOptions<Rest> : ExtractParamOptions<Rest> : unknown;
-export declare function defineMessage<K extends string, O extends ExtractParamOptions<K>>(value: K, options: O): {
-    value: K;
-    options: O;
+type MessageOptions<M_V extends MessageValue> = M_V extends `${string}{${infer Variable}}${infer Rest}` ? Variable extends `${infer Name}:${infer Type}` ? // if has a variable with a type
+VariableOptions<Name, Type> & MessageOptions<Rest> : MessageOptions<Rest> : unknown;
+type MessageValue = string;
+export declare function defineMessage<M_V extends MessageValue, M_O extends MessageOptions<M_V>>(value: M_V, options?: M_O): {
+    value: M_V;
+    options?: M_O;
 };
 export {};
 //# sourceMappingURL=define_message.d.ts.map

@@ -1,1 +1,0 @@
-{"version":3,"file":"fluent_message_value.d.ts","sourceRoot":"","sources":["../../src/fluent_message_value.ts"],"names":[],"mappings":"AAIA,OAAO,KAAK,EAAE,oBAAoB,EAAE,MAAM,4BAA4B,CAAC;AAEvE,MAAM,MAAM,kBAAkB,GAC1B,MAAM,GACN;IACE,KAAK,EAAE,MAAM,CAAC;IACd,OAAO,CAAC,EAAE;QAAE,CAAC,GAAG,EAAE,MAAM,GAAG,oBAAoB,CAAA;KAAE,CAAC;CACnD,CAAC"}

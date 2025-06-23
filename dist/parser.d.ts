@@ -1,12 +1,12 @@
-import { FluentMessageType } from './fluent_message_type';
+import { FluentVariableType } from './fluent_variable_type';
 export declare function parseVariableType(args: {
-    messageBody: string;
+    message: string;
     name: string;
-}): FluentMessageType;
+}): FluentVariableType;
 export declare function searchVariableInstances(args: {
-    messageBody: string;
+    message: string;
     name: string;
-    type?: FluentMessageType;
+    type?: FluentVariableType;
 }): {
     variable: string;
     index: number;
