@@ -1,0 +1,1 @@
+{"version":3,"file":"fluent_date_message_options.d.ts","sourceRoot":"","sources":["../../src/fluent_date_message_options.ts"],"names":[],"mappings":"AAIA,MAAM,MAAM,wBAAwB,GAAG;IACrC,MAAM,CAAC,EAAE,IAAI,CAAC,qBAAqB,CAAC;IACpC,QAAQ,CAAC,EAAE;QAAE,CAAC,GAAG,EAAE,MAAM,GAAG,MAAM,GAAG,MAAM,CAAA;KAAE,CAAC;IAC9C,cAAc,CAAC,EAAE,MAAM,GAAG,MAAM,CAAC;CAClC,CAAC"}
