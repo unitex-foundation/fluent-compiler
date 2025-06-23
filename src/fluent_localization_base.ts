@@ -2,7 +2,4 @@
 // Copyright (c) fluent-compiler contributors
 // Licensed under the MIT License
 
-export type FluentEnumMessageOptions = {
-  variants?: { [key: string | number]: string };
-  defaultVariant?: string | number;
-};
+export interface FluentLocalizationBase {}

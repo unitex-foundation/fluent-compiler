@@ -4,6 +4,7 @@
 
 import ftl from '@fluent/dedent';
 import { defineMessage as dm } from 'src/define_message';
+import type { FluentMessageList } from 'src/fluent_message_list';
 
 export const exampleMessages = Object.freeze({
   // Hello World
@@ -96,13 +97,13 @@ export const exampleMessages = Object.freeze({
   // Implicit Formatting
   // https://projectfluent.org/fluent/guide/variables.html#implicit-formatting
   // $duration (Number) - The duration in seconds.
-  'time-elapsed1': 'Time elapsed: {$duration}s.',
+  'time-elapsed': 'Time elapsed: {$duration}s.',
   // Explicit Formatting
   // https://projectfluent.org/fluent/guide/variables.html#explicit-formatting
   // $duration (Number) - The duration in seconds.
-  'time-elapsed':
+  'time-elapsed1':
     'Time elapsed: {NUMBER($duration, maximumFractionDigits: 0)}s.',
-  'time-elapsed-compiled': dm('Time elapsed: {$duration:number}s.', {
+  'time-elapsed1-compiled': dm('Time elapsed: {$duration:number}s.', {
     $duration: {
       params: {
         maximumFractionDigits: 0,
@@ -241,4 +242,4 @@ export const exampleMessages = Object.freeze({
       defaultVariant: 'other',
     },
   }),
-} as const);
+} as const satisfies FluentMessageList);

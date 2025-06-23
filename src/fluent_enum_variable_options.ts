@@ -2,8 +2,7 @@
 // Copyright (c) fluent-compiler contributors
 // Licensed under the MIT License
 
-export type FluentListMessageOptions = {
-  params?: Intl.ListFormatOptions;
+export type FluentEnumVariableOptions = {
   variants?: { [key: string | number]: string };
   defaultVariant?: string | number;
 };

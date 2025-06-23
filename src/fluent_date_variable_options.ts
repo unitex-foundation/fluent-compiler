@@ -2,7 +2,7 @@
 // Copyright (c) fluent-compiler contributors
 // Licensed under the MIT License
 
-export type FluentDateMessageOptions = {
+export type FluentDateVariableOptions = {
   params?: Intl.DateTimeFormatOptions;
   variants?: { [key: string | number]: string };
   defaultVariant?: string | number;

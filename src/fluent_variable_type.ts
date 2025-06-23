@@ -2,13 +2,12 @@
 // Copyright (c) fluent-compiler contributors
 // Licensed under the MIT License
 
-export enum FluentMessageType {
+export enum FluentVariableType {
   Datetime = 'datetime',
   Enum = 'enum',
-  List = 'list',
   Number = 'number',
   Plural = 'plural',
 }
 
-export const FLUENT_MESSAGE_TYPES_SET: ReadonlySet<FluentMessageType> =
-  Object.freeze(new Set(Object.values(FluentMessageType)));
+export const FLUENT_VARIABLE_TYPES_SET: ReadonlySet<FluentVariableType> =
+  Object.freeze(new Set(Object.values(FluentVariableType)));

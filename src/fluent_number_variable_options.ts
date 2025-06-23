@@ -2,8 +2,8 @@
 // Copyright (c) fluent-compiler contributors
 // Licensed under the MIT License
 
-export type FluentNumberMessageOptions = {
+export type FluentNumberVariableOptions = {
   params?: Intl.NumberFormatOptions & { type?: Intl.PluralRuleType };
-  variants?: Partial<Record<Intl.LDMLPluralRule | string | number, string>>;
+  variants?: Record<Intl.LDMLPluralRule | string | number, string>;
   defaultVariant?: Intl.LDMLPluralRule | string | number;
 };
