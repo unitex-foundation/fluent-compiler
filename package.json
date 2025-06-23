@@ -26,7 +26,8 @@
     "format_all": "yarn format ./",
     "format_fix": "yarn format --write",
     "format_fix_all": "yarn format_all --write",
-    "lint_format_fix_all": "yarn lint_fix_all && yarn format_fix_all"
+    "lint_format_fix_all": "yarn lint_fix_all && yarn format_fix_all",
+    "test": "bun scripts/test.ts"
   },
   "dependencies": {
     "@fluent/bundle": "^0.19.0",

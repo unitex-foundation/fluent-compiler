@@ -86,7 +86,7 @@ export const exampleMessages = Object.freeze({
     This message has 4 spaces of indent
         on the second line of its value.
   `,
-  'multiline5': ftl`This message ends up having no indent
+  'multiline5': `This message ends up having no indent
         on the second line of its value.
   `,
   // Variables
@@ -171,18 +171,19 @@ export const exampleMessages = Object.freeze({
   }),
   // Attributes
   // https://projectfluent.org/fluent/guide/attributes.html#attributes
-  'login-input': ftl`Predefined value
+  'login-input': `Predefined value
     .placeholder = email@example.com
     .aria-label = Login input value
     .title = Type your login email
   `,
-  'login-input-compiled': dm('Predefined value', {
-    attributes: {
-      'placeholder': 'email@example.com',
-      'aria-label': 'Login input value',
-      'title': 'Type your login email',
-    },
-  }),
+  // TODO: support attributes
+  // 'login-input-compiled': dm('Predefined value', {
+  //   attributes: {
+  //     'placeholder': 'email@example.com',
+  //     'aria-label': 'Login input value',
+  //     'title': 'Type your login email',
+  //   },
+  // }),
   // Parameterized Terms
   // https://projectfluent.org/fluent/guide/terms.html#parameterized-terms
   '-https': 'https://{$host}',
@@ -211,14 +212,15 @@ export const exampleMessages = Object.freeze({
   'about': 'Информация о {-brand-name2(case: "locative")}.',
   // Terms and Attributes
   // https://projectfluent.org/fluent/guide/terms.html#terms-and-attributes
-  '-brand-name3': ftl`Aurora
+  '-brand-name3': `Aurora
     .gender = feminine
   `,
-  '-brand-name3-compiled': dm('Aurora', {
-    attributes: {
-      gender: 'feminine',
-    },
-  }),
+  // TODO: support attributes
+  // '-brand-name3-compiled': dm('Aurora', {
+  //   attributes: {
+  //     gender: 'feminine',
+  //   },
+  // }),
   'update-successful': ftl`
     {-brand-name.gender ->
         [masculine] {-brand-name} успешно обновлён.

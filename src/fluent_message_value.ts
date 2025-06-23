@@ -4,7 +4,9 @@
 
 import type { FluentMessageOptions } from 'src/fluent_message_options';
 
-export type FluentMessageValue = {
-  value: string;
-  options?: { [key: string]: FluentMessageOptions };
-};
+export type FluentMessageValue =
+  | string
+  | {
+      value: string;
+      options?: { [key: string]: FluentMessageOptions };
+    };

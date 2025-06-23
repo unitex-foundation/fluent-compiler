@@ -9,19 +9,21 @@ export function parseVariableType(args: {
   messageBody: string;
   name: string;
 }): FluentMessageType {
-  const pattern = new RegExp(
-    [
-      '([\\s\\S]*?)',
-      '(<variable>(\\{',
-      '([\\s]*?)',
-      `(<name>(${args.name}))`,
-      ':',
-      `(<type>(${Object.values(FluentMessageType).join('|')}))`,
-      '([\\s]*?)',
-      ')\\})',
-      '([\\s\\S]*?)',
-    ].join(''),
-  );
+  const safeName = args.name.includes('$')
+    ? args.name.replace('$', '\\$')
+    : args.name;
+  const patternString = [
+    '([\\s\\S]*?)',
+    '(?<variable>(\\{',
+    '([\\s]*?)',
+    `(?<name>(${safeName}))`,
+    ':',
+    `(?<type>(${Object.values(FluentMessageType).join('|')}))`,
+    '([\\s]*?)',
+    '\\}))',
+    '([\\s\\S]*?)',
+  ].join('');
+  const pattern = new RegExp(patternString);
   const match = args.messageBody.match(pattern);
   if (match === null || match.groups === undefined) {
     throw new Error(
@@ -52,21 +54,23 @@ export function searchVariableInstances(args: {
   name: string;
   type?: FluentMessageType;
 }): { variable: string; index: number }[] {
-  const pattern = new RegExp(
-    [
-      '([\\s\\S]*?)',
-      '(<variable>(\\{',
-      '([\\s]*?)',
-      `(<name>(${args.name}))`,
-      args.type !== undefined ? [':', `(<type>(${args.name})`] : undefined,
-      '([\\s]*?)',
-      ')\\})',
-      '([\\s\\S]*?)',
-    ]
-      .flat()
-      .filter((value) => value !== undefined)
-      .join(''),
-  );
+  const safeName = args.name.includes('$')
+    ? args.name.replace('$', '\\$')
+    : args.name;
+  const patternString = [
+    '([\\s\\S]*?)',
+    '(?<variable>(\\{',
+    '([\\s]*?)',
+    `(?<name>(${safeName}))`,
+    args.type !== undefined ? [':', `(?<type>(${args.type}))`] : undefined,
+    '([\\s]*?)',
+    '\\}))',
+    '([\\s\\S]*?)',
+  ]
+    .flat()
+    .filter((value) => value !== undefined)
+    .join('');
+  const pattern = new RegExp(patternString, 'g');
   const matches = [...args.messageBody.matchAll(pattern)];
   if (matches.length === 0) {
     throw new Error(
@@ -90,6 +94,6 @@ export function searchVariableInstances(args: {
         `Unexpected parsed type of variable "${args.name}" in the message: ${args.messageBody}`,
       );
     }
-    return { variable, index: match.index };
+    return { variable, index: match.index + match[0].indexOf(variable) };
   });
 }

@@ -7,17 +7,17 @@ import { FluentMessageType } from 'src/fluent_message_type';
 import type { FluentMessageValue } from 'src/fluent_message_value';
 import { parseVariableType, searchVariableInstances } from 'src/parser';
 
-export async function compile(
+export function compile(
   messages: {
     [key: string]: FluentMessageValue;
   },
   isLoggingEnabled?: boolean,
-): Promise<string> {
+): string {
   if (isLoggingEnabled) {
-    console.log('Compiling messages...:');
-    console.log('\n', messages, '\n');
+    console.log('Begin: Compiling messages:');
+    console.log(messages);
   }
-  return Object.entries(messages)
+  const result = Object.entries(messages)
     .map(([key, message]) => {
       const compiledMessage = compileMessageValue({
         message,
@@ -26,6 +26,11 @@ export async function compile(
       return `${key} = ${compiledMessage}`;
     })
     .join('\n');
+  if (isLoggingEnabled) {
+    console.log('End: Compiled messages:');
+    console.log(result);
+  }
+  return result;
 }
 
 function compileMessageValue(args: {
@@ -33,15 +38,28 @@ function compileMessageValue(args: {
   isLoggingEnabled?: boolean;
 }): string {
   if (args.isLoggingEnabled) {
-    console.log('Compiling message...:');
-    console.log('\n', args.message, '\n');
+    console.log('Compiling message:');
+    console.log(args.message);
+  }
+  if (typeof args.message === 'string') {
+    if (args.isLoggingEnabled) {
+      console.log('Result: Compiled message:');
+      console.log('- From');
+      console.log(args.message);
+      console.log('- To');
+      console.log(args.message);
+    }
+    return args.message;
   }
   let messageBody = args.message.value;
   const messageOptions = args.message.options;
   if (messageOptions === undefined) {
     if (args.isLoggingEnabled) {
-      console.log('Result:');
-      console.log('\n', messageBody, '\n');
+      console.log('Result: Compiled message:');
+      console.log('- From');
+      console.log(args.message);
+      console.log('- To');
+      console.log(messageBody);
     }
     return messageBody;
   }
@@ -55,6 +73,13 @@ function compileMessageValue(args: {
       name,
       options,
     });
+  }
+  if (args.isLoggingEnabled) {
+    console.log('Result: Compiled message:');
+    console.log('- From');
+    console.log(args.message);
+    console.log('- To');
+    console.log(messageBody);
   }
   return messageBody;
 }
@@ -126,7 +151,11 @@ function compileVariableInstance(args: {
   const sliceAfter = args.messageBody.slice(args.index + args.variable.length);
   const messageBody = sliceBefore + functionalVariable + sliceAfter;
   if (args.isLoggingEnabled) {
-    console.log(`Updated message body:\n\n${messageBody}\n\n`);
+    console.log('Updated message body:');
+    console.log('- From');
+    console.log(args.messageBody);
+    console.log('- To');
+    console.log(messageBody);
   }
   return messageBody;
 }
@@ -185,7 +214,7 @@ function convertToFunctionalVariable(args: {
   const replacement = [
     args.type.toUpperCase(),
     '(',
-    [args.name, ...functionParams.join(', ')]
+    [args.name, ...functionParams]
       .filter((value) => value !== undefined)
       .join(', '),
     ')',
