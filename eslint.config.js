@@ -189,6 +189,7 @@ export default defineConfig(
     'yarn.lock',
     // Build
     'dist',
+    'index.*',
     // ESLint cache
     '.eslintcache',
     // Temp

@@ -7,6 +7,11 @@ import { FluentMessageType } from 'src/fluent_message_type';
 import type { FluentMessageValue } from 'src/fluent_message_value';
 import { parseVariableType, searchVariableInstances } from 'src/parser';
 
+// TODO:
+// - support attributes
+// - support linked attributes
+// - support namespaces
+
 export function compile(
   messages: {
     [key: string]: FluentMessageValue;
@@ -32,13 +37,6 @@ export function compile(
   }
   return result;
 }
-
-// TODO:
-// - support attributes
-// - support linked attributes
-// - support namespaces
-
-// Private =====================================================================
 
 function compileMessageValue(args: {
   message: FluentMessageValue;

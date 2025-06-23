@@ -18,6 +18,7 @@
 
 # Build
 /dist
+/index.*
 
 # ESLint cache
 /.eslintcache

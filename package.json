@@ -17,7 +17,9 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "tsc --project tsconfig-build.json && tsc-alias -p tsconfig-build.json",
+    "build": "yarn build_src && yarn build_index",
+    "build_src": "rm -rf dist/ && tsc --project tsconfig-build-src.json && tsc-alias -p tsconfig-build-src.json && mv dist/src/* dist/ && rm -r dist/src",
+    "build_index": "tsc --project tsconfig-build-index.json && tsc-alias -p tsconfig-build-index.json",
     "lint": "eslint --cache --rule 'import/order: [warn, { newlines-between: never }]' --ext=js,mjs,cjs,ts,mts,cts,d.ts",
     "lint_all": "yarn lint './**/*.{js,mjs,cjs,ts,mts,cts,d.ts}'",
     "lint_fix": "yarn lint --fix",
