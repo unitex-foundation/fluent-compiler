@@ -128,13 +128,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fluent/bundle@npm:^0.19.0":
-  version: 0.19.1
-  resolution: "@fluent/bundle@npm:0.19.1"
-  checksum: 10c0/87ed606b47c37fe722b0c07808344115e51720bc3e33e1661d4b8e21ca629761592bac96af27c7cb5be0dd03ec6175207019c387f2a37c42c58aa56feb857cc0
-  languageName: node
-  linkType: hard
-
 "@fluent/dedent@npm:^0.5.0":
   version: 0.5.0
   resolution: "@fluent/dedent@npm:0.5.0"
@@ -1512,7 +1505,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "fluent-compiler@workspace:."
   dependencies:
-    "@fluent/bundle": "npm:^0.19.0"
     "@fluent/dedent": "npm:^0.5.0"
     "@stylistic/eslint-plugin": "npm:4.4.1"
     "@types/bun": "npm:^1"
