@@ -27,11 +27,8 @@
     "useDefineForClassFields": true,
     "verbatimModuleSyntax": true,
     "paths": {
-      "resources/*": ["resources/*"],
-      "scripts/*": ["scripts/*"],
       "src/*": ["src/*"]
     }
   },
-  "include": ["./"],
-  "exclude": ["./git", "./node_modules", "./yarn", "./dist", "./temp"]
+  "files": ["./index.ts"]
 }

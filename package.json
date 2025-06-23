@@ -17,7 +17,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "...",
+    "build": "tsc --project tsconfig-build.json && tsc-alias -p tsconfig-build.json",
     "lint": "eslint --cache --rule 'import/order: [warn, { newlines-between: never }]' --ext=js,mjs,cjs,ts,mts,cts,d.ts",
     "lint_all": "yarn lint './**/*.{js,mjs,cjs,ts,mts,cts,d.ts}'",
     "lint_fix": "yarn lint --fix",
@@ -44,6 +44,7 @@
     "eslint-plugin-unused-imports": "4.1.4",
     "globals": "16.2.0",
     "prettier": "3.5.3",
+    "tsc-alias": "1.8.16",
     "typescript": "5.8.3",
     "typescript-eslint": "8.34.1"
   },
