@@ -119,7 +119,7 @@ export const exampleMessages = Object.freeze({
     {$unreadEmails ->
         [one] You have one unread email.
        *[other] You have {$unreadEmails} unread emails.
-   }
+    }
   `,
   'emails-compiled': dm('{$unreadEmails:plural}', {
     $unreadEmails: {
@@ -127,13 +127,14 @@ export const exampleMessages = Object.freeze({
         other: 'You have {$} unread emails.', // default
         one: 'You have one unread email.',
       },
+      defaultVariant: 'other',
     },
   }),
   'your-score': ftl`
     {NUMBER($score, minimumFractionDigits: 1) ->
         [0.0]   You scored zero points. What happened?
        *[other] You scored {NUMBER($score, minimumFractionDigits: 1)} points.
-   })
+    }
   `,
   'your-score-compiled': dm('{$score:number}', {
     $score: {
@@ -141,9 +142,10 @@ export const exampleMessages = Object.freeze({
         minimumFractionDigits: 1,
       },
       variants: {
-        other: 'You scored {$} points', // default
         0.0: 'You scored zero points. What happened?',
+        other: 'You scored {$} points',
       },
+      defaultVariant: 'other',
     },
   }),
   'your-rank': ftl`
@@ -152,8 +154,8 @@ export const exampleMessages = Object.freeze({
         [one] You finished {$pos}st
         [two] You finished {$pos}nd
         [few] You finished {$pos}rd
-        *[other] You finished {$pos}th
-   }
+       *[other] You finished {$pos}th
+    }
   `,
   'your-rank-compiled': dm('{$pos:number}', {
     $pos: {
@@ -161,12 +163,13 @@ export const exampleMessages = Object.freeze({
         type: 'cardinal',
       },
       variants: {
-        other: 'You finished {$}th',
         1: 'You finished first!',
         one: 'You finished {$}st',
         two: 'You finished {$}nd',
         few: 'You finished {$}rd',
+        other: 'You finished {$}th',
       },
+      defaultVariant: 'other',
     },
   }),
   // Attributes
@@ -198,7 +201,7 @@ export const exampleMessages = Object.freeze({
     {$case ->
        *[nominative] Firefox
         [locative] Firefoksie
-   }
+    }
   `,
   '-brand-name2-compiled': dm('{$case:enum}', {
     $case: {
@@ -226,7 +229,7 @@ export const exampleMessages = Object.freeze({
         [masculine] {-brand-name} успешно обновлён.
         [feminine] {-brand-name} успешно обновлена.
        *[other] Программа {-brand-name} успешно обновлена.
-   }
+    }
   `,
   'update-successful-compiled': dm('{-brand-name.gender:enum}', {
     '-brand-name.gender': {
@@ -235,6 +238,7 @@ export const exampleMessages = Object.freeze({
         feminine: '{$} успешно обновлена.',
         other: 'Программа {$} успешно обновлена.',
       },
+      defaultVariant: 'other',
     },
   }),
 } as const);

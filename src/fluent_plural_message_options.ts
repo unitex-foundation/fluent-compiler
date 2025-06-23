@@ -5,4 +5,5 @@
 export type FluentPluralMessageOptions = {
   params?: { type?: Intl.PluralRuleType };
   variants?: Partial<Record<Intl.LDMLPluralRule | string | number, string>>;
+  defaultVariant?: Intl.LDMLPluralRule | string | number;
 };

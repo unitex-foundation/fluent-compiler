@@ -5,4 +5,5 @@
 export type FluentNumberMessageOptions = {
   params?: Intl.NumberFormatOptions & { type?: Intl.PluralRuleType };
   variants?: Partial<Record<Intl.LDMLPluralRule | string | number, string>>;
+  defaultVariant?: Intl.LDMLPluralRule | string | number;
 };

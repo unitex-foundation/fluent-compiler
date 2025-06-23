@@ -33,6 +33,13 @@ export function compile(
   return result;
 }
 
+// TODO:
+// - support attributes
+// - support linked attributes
+// - support namespaces
+
+// Private =====================================================================
+
 function compileMessageValue(args: {
   message: FluentMessageValue;
   isLoggingEnabled?: boolean;
@@ -147,9 +154,13 @@ function compileVariableInstance(args: {
     ...args,
     variable: shortVariable,
   });
+  const selectableVariable = convertToSelectableVariable({
+    ...args,
+    variable: functionalVariable,
+  });
   const sliceBefore = args.messageBody.slice(0, args.index);
   const sliceAfter = args.messageBody.slice(args.index + args.variable.length);
-  const messageBody = sliceBefore + functionalVariable + sliceAfter;
+  const messageBody = sliceBefore + selectableVariable + sliceAfter;
   if (args.isLoggingEnabled) {
     console.log('Updated message body:');
     console.log('- From');
@@ -226,4 +237,40 @@ function convertToFunctionalVariable(args: {
     console.log(`Converted variable from "${args.variable}" to "${variable}"`);
   }
   return variable;
+}
+
+function convertToSelectableVariable(args: {
+  variable: string;
+  name: string;
+  type: FluentMessageType;
+  options: FluentMessageOptions;
+  isLoggingEnabled?: boolean;
+}): string {
+  const variants = args.options.variants;
+  if (variants === undefined) {
+    return args.variable;
+  }
+  const [name] = args.name.split('.');
+  const defaultIndex =
+    args.options.defaultVariant !== undefined
+      ? Object.keys(variants).indexOf(args.options.defaultVariant.toString())
+      : 0;
+  if (defaultIndex === -1) {
+    throw new Error(
+      `Unexpected default variants "${args.options.defaultVariant}", expected variants are "${Object.keys(variants).join(', ')}"`,
+    );
+  }
+  const selectors = Object.entries(variants)
+    .map(([key, value], index) => {
+      if (value === undefined) {
+        throw new Error(
+          `Select option "${key}" for variable "${args.variable}" is undefined`,
+        );
+      }
+      const prefix = `   ${index === defaultIndex ? '*' : ' '}`;
+      const selectValue = value.replaceAll('{$}', `{${name}}`);
+      return `${prefix}[${key}] ${selectValue}`;
+    })
+    .join('\n');
+  return args.variable.replace('}', ` ->\n${selectors}\n  }`);
 }

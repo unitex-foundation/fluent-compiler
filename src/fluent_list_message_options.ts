@@ -4,5 +4,6 @@
 
 export type FluentListMessageOptions = {
   params?: Intl.ListFormatOptions;
-  variants?: { [key: string]: string };
+  variants?: { [key: string | number]: string };
+  defaultVariant?: string | number;
 };

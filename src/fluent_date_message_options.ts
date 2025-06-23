@@ -4,5 +4,6 @@
 
 export type FluentDateMessageOptions = {
   params?: Intl.DateTimeFormatOptions;
-  variants?: { [key: string]: string };
+  variants?: { [key: string | number]: string };
+  defaultVariant?: string | number;
 };

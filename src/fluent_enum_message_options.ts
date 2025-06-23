@@ -3,5 +3,6 @@
 // Licensed under the MIT License
 
 export type FluentEnumMessageOptions = {
-  variants?: { [key: string]: string };
+  variants?: { [key: string | number]: string };
+  defaultVariant?: string | number;
 };
