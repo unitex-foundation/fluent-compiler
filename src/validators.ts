@@ -4,7 +4,7 @@
 
 import {
   FLUENT_MESSAGE_TYPES_SET,
-  FluentMessageType,
+  type FluentMessageType,
 } from 'src/fluent_message_type';
 
 export function isFluentMessageType(

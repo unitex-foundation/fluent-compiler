@@ -8,7 +8,6 @@
 import type { FluentDateMessageOptions } from 'src/fluent_date_message_options';
 import type { FluentEnumMessageOptions } from 'src/fluent_enum_message_options';
 import type { FluentListMessageOptions } from 'src/fluent_list_message_options';
-import type { FluentMessageType } from 'src/fluent_message_type';
 import type { FluentNumberMessageOptions } from 'src/fluent_number_message_options';
 import type { FluentPluralMessageOptions } from 'src/fluent_plural_message_options';
 

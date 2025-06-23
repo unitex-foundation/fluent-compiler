@@ -67,7 +67,7 @@ function compileVariable(args: {
 }): string {
   if (args.isLoggingEnabled) {
     console.log(`Compiling variable "${args.name}"`);
-    console.log(`Parsing type...`);
+    console.log('Parsing type...');
   }
   const type = parseVariableType({
     messageBody: args.messageBody,
@@ -92,7 +92,7 @@ function compileVariable(args: {
   for (const instance of instances) {
     messageBody = compileVariableInstance({
       ...args,
-      messageBody: messageBody,
+      messageBody,
       type,
       variable: instance.variable,
       index: instance.index + offset,
@@ -115,7 +115,7 @@ function compileVariableInstance(args: {
     console.log(
       `Compiling variable "${args.variable}" instance at index "${args.index}"`,
     );
-    console.log(`Parsing type...`);
+    console.log('Parsing type...');
   }
   const shortVariable = convertToShortVariableName(args);
   const functionalVariable = convertToFunctionalVariable({

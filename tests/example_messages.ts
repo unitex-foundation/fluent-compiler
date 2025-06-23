@@ -22,10 +22,8 @@ export const exampleMessages = Object.freeze({
   // https://projectfluent.org/fluent/guide/special.html#special-characters
   // Quoted Text
   // https://projectfluent.org/fluent/guide/special.html#quoted-text
-  'opening-brace1': 'This message features an opening curly brace: {"{"}.',
-  'opening-brace2': 'This message features an opening curly brace: "\{".',
-  'closing-brace1': 'This message features a closing curly brace: {"}"}.',
-  'closing-brace2': 'This message features a closing curly brace: "\}".',
+  'opening-brace': 'This message features an opening curly brace: {"{"}.',
+  'closing-brace': 'This message features a closing curly brace: {"}"}.',
   'blank-is-removed': '    This message starts with no blanks.',
   'blank-is-preserved': '{"    "}This message starts with 4 spaces.',
   'leading-bracket': ftl`
@@ -46,9 +44,9 @@ export const exampleMessages = Object.freeze({
   'privacy-label': 'Privacy{"\\u00A0"}Policy',
   // The dash character is an EM DASH but depending on the font face,
   // it might look like an EN DASH.
-  'which-dash1': `It's a dash—or is it?`,
+  'which-dash1': "It's a dash—or is it?",
   // Using a Unicode escape sequence makes the intent clear.
-  'which-dash2': `It's a dash{"\\u2014"}or is it?`,
+  'which-dash2': 'It\'s a dash{"\\u2014"}or is it?',
   // This will work fine, but the codepoint can be considered
   // cryptic by other translators.
   'tears-of-joy1': '{"\\U01F602"}', // 😂
@@ -70,7 +68,7 @@ export const exampleMessages = Object.freeze({
     from the final text value.
       This line has 2 spaces in front of it.
   `,
-  'leading-spaces': `    This message's value starts with the word "This".`,
+  'leading-spaces': '    This message\'s value starts with the word "This".',
   'leading-lines': ftl`
 
 

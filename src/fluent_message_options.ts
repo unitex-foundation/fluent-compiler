@@ -13,4 +13,4 @@ export type FluentMessageOptions =
   | FluentEnumMessageOptions
   | FluentListMessageOptions
   | FluentNumberMessageOptions
-  | FluentPluralMessageOptions
+  | FluentPluralMessageOptions;
