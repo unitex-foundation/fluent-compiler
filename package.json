@@ -19,9 +19,9 @@
   "scripts": {
     "build": "...",
     "lint": "eslint --cache --rule 'import/order: [warn, { newlines-between: never }]' --ext=js,mjs,cjs,ts,mts,cts,d.ts",
-    "lint_all": "yarn lint_es './**/*.{js,mjs,cjs,ts,mts,cts,d.ts}'",
-    "lint_fix": "yarn lint_es --fix",
-    "lint_fix_all": "yarn lint_es_all --fix",
+    "lint_all": "yarn lint './**/*.{js,mjs,cjs,ts,mts,cts,d.ts}'",
+    "lint_fix": "yarn lint --fix",
+    "lint_fix_all": "yarn lint_all --fix",
     "format": "prettier --ignore-unknown --check",
     "format_all": "yarn format ./",
     "format_fix": "yarn format --write",
@@ -36,12 +36,16 @@
     "@stylistic/eslint-plugin": "4.4.1",
     "@types/bun": "^1",
     "@types/node": "22.15.0",
+    "@typescript-eslint/parser": "^8.34.1",
     "bun": "1.2.17",
     "eslint": "9.29.0",
+    "eslint-import-resolver-typescript": "^4.4.3",
     "eslint-plugin-import": "2.32.0",
+    "eslint-plugin-unused-imports": "4.1.4",
     "globals": "16.2.0",
     "prettier": "3.5.3",
-    "typescript": "5.8.3"
+    "typescript": "5.8.3",
+    "typescript-eslint": "8.34.1"
   },
   "type": "module",
   "packageManager": "yarn@4.9.2"

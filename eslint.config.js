@@ -6,15 +6,14 @@ import eslint from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
 import importPlugin from 'eslint-plugin-import';
 import unusedImportsPlugin from 'eslint-plugin-unused-imports';
-import { globalIgnores } from 'eslint/config';
+import { globalIgnores, defineConfig } from 'eslint/config';
+import tseslint from 'typescript-eslint';
+import globals from 'globals';
 
 function getConfigForSubdir(dirName) {
   const files = (() => {
     if (dirName === undefined) {
-      return [
-        '*.{js,mjs,cjs,ts,mts,cts,d.ts}',
-        'plugins/*.{js,mjs,cjs,ts,mts,cts,d.ts}',
-      ];
+      return ['./**/*.{js,mjs,cjs,ts,mts,cts,d.ts}'];
     } else {
       return [`${dirName}/**/*.{js,mjs,cjs,ts,mts,cts,d.ts}`];
     }
@@ -31,6 +30,14 @@ function getConfigForSubdir(dirName) {
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+      globals: {
+        ...globals.es2025,
+        ...globals.node,
+      },
     },
     settings: {
       'import/resolver': {
@@ -39,9 +46,10 @@ function getConfigForSubdir(dirName) {
     },
     extends: [
       eslint.configs.recommended,
-      stylistic.configs.recommended,
+      tseslint.configs.recommendedTypeChecked,
+      // stylistic.configs.recommended,
       importPlugin.flatConfigs.recommended,
-      prettierSkipFormatting,
+      importPlugin.flatConfigs.typescript,
     ],
     plugins: {
       '@stylistic': stylistic,
@@ -50,8 +58,8 @@ function getConfigForSubdir(dirName) {
     rules: {
       'prefer-promise-reject-errors': 'off',
       'no-empty': 'warn',
-      curly: ['warn', 'multi-line', 'consistent'],
-      quotes: ['warn', 'single', { avoidEscape: true }],
+      'curly': ['warn', 'multi-line', 'consistent'],
+      'quotes': ['warn', 'single', { avoidEscape: true }],
       'no-restricted-imports': ['error', { patterns: ['.*'] }],
       'object-shorthand': ['warn', 'always', { avoidQuotes: true }],
       'arrow-body-style': ['warn', 'as-needed'],
@@ -129,7 +137,7 @@ function getConfigForSubdir(dirName) {
       // in plain CommonJS modules, you can't use `import foo = require('foo')` to pass this rule, so it has to be disabled
       '@typescript-eslint/no-var-requires': 'off',
 
-      '@typescript-eslint/no-unsafe-enum-comparison': 'error',
+      '@typescript-eslint/no-unsafe-enum-comparison': 'off',
       '@typescript-eslint/no-import-type-side-effects': 'error',
       '@typescript-eslint/consistent-type-imports': [
         'error',
@@ -149,7 +157,7 @@ function getConfigForSubdir(dirName) {
       '@typescript-eslint/prefer-promise-reject-errors': 'off', // TODO: investigate usability
 
       'import/default': 'off',
-      'import/order': ['off', { 'newlines-between': 'never' }], // enabled in `yarn lint:es`
+      'import/order': ['off', { 'newlines-between': 'never' }], // enabled in `yarn lint`
       'import/no-mutable-exports': 'error',
       'import/no-unused-modules': 'off', // use `unused-imports` instead
       'import/first': 'error',
@@ -160,13 +168,14 @@ function getConfigForSubdir(dirName) {
       'import/no-relative-packages': 'error',
       'import/no-cycle': 'off',
       'import/no-named-as-default': 'off',
+      'import/no-named-as-default-member': 'off',
 
       'unused-imports/no-unused-imports': 'warn',
     },
   };
 }
 
-export default defineConfigWithVueTs(
+export default defineConfig(
   globalIgnores([
     // Common
     '**/.DS_Store',

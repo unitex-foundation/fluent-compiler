@@ -29,5 +29,6 @@
       "tests/*": ["tests/*"]
     }
   },
-  "include": ["./src/", "./tests/"]
+  "include": ["./", "./tests/"],
+  "exclude": ["./node_modules"]
 }
