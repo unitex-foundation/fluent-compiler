@@ -83,3 +83,10 @@ export type FluentBaseMessageArgsAtKey<K extends FluentBaseMessageKey> =
           FluentBaseMessageList[K]['options']
         >
       : never;
+
+type ObjectWithValuesAs<T extends { [K in keyof T]: T[K] }, T_VALUES> = {
+  [K in keyof T]: T_VALUES;
+};
+
+export type FluentMessageListBasedOn<T extends FluentMessageList> =
+  ObjectWithValuesAs<T, string | FluentDefinedMessage>;

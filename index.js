@@ -1,7 +1,7 @@
 // Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
 // Copyright (c) fluent-compiler contributors
 // Licensed under the MIT License
-export * from './dist/initialization';
+export * from './dist/type_casting';
 //
 export * from './dist/compiler';
 export * from './dist/parser';

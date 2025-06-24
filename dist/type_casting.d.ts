@@ -23,5 +23,11 @@ type VariableArgs<M_V extends string, M_O extends FluentMessageOptions | undefin
     [K in Variable]: string | number;
 } & VariableArgs<Rest, M_O> : undefined;
 export type FluentBaseMessageArgsAtKey<K extends FluentBaseMessageKey> = FluentBaseMessageList[K] extends string ? VariableArgs<FluentBaseMessageList[K], undefined> : FluentBaseMessageList[K] extends FluentDefinedMessage ? VariableArgs<FluentBaseMessageList[K]['value'], FluentBaseMessageList[K]['options']> : never;
+type ObjectWithValuesAs<T extends {
+    [K in keyof T]: T[K];
+}, T_VALUES> = {
+    [K in keyof T]: T_VALUES;
+};
+export type FluentMessageListBasedOn<T extends FluentMessageList> = ObjectWithValuesAs<T, string | FluentDefinedMessage>;
 export {};
-//# sourceMappingURL=initialization.d.ts.map
+//# sourceMappingURL=type_casting.d.ts.map
