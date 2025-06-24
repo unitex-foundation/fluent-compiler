@@ -6,10 +6,16 @@
 // https://github.com/WebDevSimplified/intl-crash-course
 
 import type { FluentDefinedMessage } from 'src/fluent_defined_message';
-import type { FluentLocalizationBase } from 'src/fluent_localization_base';
+// import type { FluentLocalizationBase } from 'src/fluent_localization_base';
 import type { FluentMessageList } from 'src/fluent_message_list';
 import type { FluentMessageOptions } from 'src/fluent_message_options';
 import type { FluentVariableOptions } from 'src/fluent_variable_options';
+
+import type { exampleMessages } from 'resources/example_messages';
+
+type FluentLocalizationBase = {
+  messageList: typeof exampleMessages;
+};
 
 export type FluentBaseMessageList = FluentLocalizationBase extends {
   messageList: infer T;
@@ -72,7 +78,7 @@ type VariableArgs<
     : // if has a variable without a type
       { [K in Variable]: string | number } & VariableArgs<Rest, M_O>
   : // if has no variables
-    undefined;
+    unknown;
 
 export type FluentBaseMessageArgsAtKey<K extends FluentBaseMessageKey> =
   FluentBaseMessageList[K] extends string
@@ -83,6 +89,12 @@ export type FluentBaseMessageArgsAtKey<K extends FluentBaseMessageKey> =
           FluentBaseMessageList[K]['options']
         >
       : never;
+
+export type FluentBaseMessageArgs = {
+  [K in FluentBaseMessageKey]: FluentBaseMessageArgsAtKey<K> extends object
+    ? FluentBaseMessageArgsAtKey<K>
+    : never;
+}[FluentBaseMessageKey];
 
 export type FluentMessageListBasedOn<T extends FluentMessageList> = {
   [K in keyof T]?: string | FluentDefinedMessage;
