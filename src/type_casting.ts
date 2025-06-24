@@ -6,16 +6,10 @@
 // https://github.com/WebDevSimplified/intl-crash-course
 
 import type { FluentDefinedMessage } from 'src/fluent_defined_message';
-// import type { FluentLocalizationBase } from 'src/fluent_localization_base';
+import type { FluentLocalizationBase } from 'src/fluent_localization_base';
 import type { FluentMessageList } from 'src/fluent_message_list';
 import type { FluentMessageOptions } from 'src/fluent_message_options';
 import type { FluentVariableOptions } from 'src/fluent_variable_options';
-
-import type { exampleMessages } from 'resources/example_messages';
-
-type FluentLocalizationBase = {
-  messageList: typeof exampleMessages;
-};
 
 export type FluentBaseMessageList = FluentLocalizationBase extends {
   messageList: infer T;
