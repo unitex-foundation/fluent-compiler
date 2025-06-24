@@ -3,10 +3,6 @@ import type { FluentLocalizationBase } from './fluent_localization_base';
 import type { FluentMessageList } from './fluent_message_list';
 import type { FluentMessageOptions } from './fluent_message_options';
 import type { FluentVariableOptions } from './fluent_variable_options';
-export type LocalizationHandler = (key: string | number, args?: {
-    [key: string | number]: string | number | Date;
-} | unknown) => string;
-export declare function setLocalizationHandler(handler: LocalizationHandler): void;
 export type FluentBaseMessageList = FluentLocalizationBase extends {
     messageList: infer T;
 } ? T extends infer MessageList ? MessageList : never : FluentMessageList;
@@ -25,9 +21,7 @@ type VariableArgs<M_V extends string, M_O extends FluentMessageOptions | undefin
 } & VariableArgs<Rest, M_O> : // if has a variable without a type
 {
     [K in Variable]: string | number;
-} & VariableArgs<Rest, M_O> : unknown;
+} & VariableArgs<Rest, M_O> : undefined;
 export type FluentBaseMessageArgsAtKey<K extends FluentBaseMessageKey> = FluentBaseMessageList[K] extends string ? VariableArgs<FluentBaseMessageList[K], undefined> : FluentBaseMessageList[K] extends FluentDefinedMessage ? VariableArgs<FluentBaseMessageList[K]['value'], FluentBaseMessageList[K]['options']> : never;
-export declare function t<K extends FluentBaseMessageKeyWitoutVariables>(key: K): string;
-export declare function t<K extends FluentBaseMessageKeyWithVariables, A extends FluentBaseMessageArgsAtKey<K>>(key: K, args: A): string;
 export {};
 //# sourceMappingURL=initialization.d.ts.map
