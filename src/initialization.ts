@@ -11,17 +11,6 @@ import type { FluentMessageList } from 'src/fluent_message_list';
 import type { FluentMessageOptions } from 'src/fluent_message_options';
 import type { FluentVariableOptions } from 'src/fluent_variable_options';
 
-export type LocalizationHandler = (
-  key: string | number,
-  args?: { [key: string | number]: string | number | Date } | unknown,
-) => string;
-
-let _localizationHandler: LocalizationHandler | undefined = undefined;
-
-export function setLocalizationHandler(handler: LocalizationHandler) {
-  _localizationHandler = handler;
-}
-
 export type FluentBaseMessageList = FluentLocalizationBase extends {
   messageList: infer T;
 }
@@ -83,7 +72,7 @@ type VariableArgs<
     : // if has a variable without a type
       { [K in Variable]: string | number } & VariableArgs<Rest, M_O>
   : // if has no variables
-    unknown;
+    undefined;
 
 export type FluentBaseMessageArgsAtKey<K extends FluentBaseMessageKey> =
   FluentBaseMessageList[K] extends string
@@ -94,22 +83,3 @@ export type FluentBaseMessageArgsAtKey<K extends FluentBaseMessageKey> =
           FluentBaseMessageList[K]['options']
         >
       : never;
-
-export function t<K extends FluentBaseMessageKeyWitoutVariables>(
-  key: K,
-): string;
-export function t<
-  K extends FluentBaseMessageKeyWithVariables,
-  A extends FluentBaseMessageArgsAtKey<K>,
->(key: K, args: A): string;
-export function t<
-  K extends FluentBaseMessageKey,
-  A extends FluentBaseMessageArgsAtKey<K>,
->(key: K, args?: A): string {
-  if (_localizationHandler === undefined) {
-    throw new Error(
-      'Localization Handler has not been set.\nYou need to provide handler using "setLocalizationHandler" function',
-    );
-  }
-  return _localizationHandler(key, args);
-}
