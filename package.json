@@ -1,6 +1,5 @@
 {
   "name": "fluent-compiler",
-  "productName": "fluent-compiler",
   "description": "Compiler from TypeScript to Fluent Translation List (FTL)",
   "author": {
     "name": "Grigorii Lutkov",

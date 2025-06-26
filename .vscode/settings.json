@@ -27,7 +27,8 @@
     "**/.yarn": true,
     "/dist": true,
     "/node_modules": true,
-    "/temp": true
+    "/temp": true,
+    "/Third-Party_Licenses": true
   },
   "search.useIgnoreFiles": true,
   "typescript.format.indentSwitchCase": true,
