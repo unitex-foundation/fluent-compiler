@@ -43,7 +43,7 @@
 - License:
   - Type: `MIT`
   - [Original Link](https://github.com/oven-sh/bun/blob/main/LICENSE.md)
-  - [Local Copy](./Third-Party_Licenses/bun.txt)
+  - [Local Copy](./Third-Party_Licenses/bun.md)
 
 ## prettier
 

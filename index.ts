@@ -2,7 +2,7 @@
 // Copyright (c) fluent-compiler contributors
 // Licensed under the MIT License
 
-export * from './dist/type_casting'
+export * from './dist/type_casting';
 //
 export * from './dist/compiler';
 export * from './dist/parser';

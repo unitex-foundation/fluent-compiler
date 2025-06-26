@@ -28,17 +28,17 @@
     "verbatimModuleSyntax": true,
     "paths": {
       "resources/*": ["resources/*"],
-      "scripts/*": ["scripts/*"],
       "src/*": ["src/*"]
     }
   },
   "include": ["./"],
   "exclude": [
-    "./git",
-    "./node_modules",
-    "./yarn",
     "./dist",
+    "./git",
+    "./index.*",
+    "./node_modules",
     "./temp",
-    "./index.*"
+    "./Third-Party_Licenses",
+    "./yarn"
   ]
 }

@@ -205,6 +205,8 @@ export default defineConfig(
     '*.njsproj',
     '*.sln',
     '*.code-workspace',
+    // Licenses
+    'Third-Party_Licenses',
   ]),
   getConfigForSubdir(),
 );
