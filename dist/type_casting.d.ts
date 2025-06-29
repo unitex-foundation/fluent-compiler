@@ -1,8 +1,8 @@
-import type { FluentDefinedMessage } from './fluent_defined_message';
-import type { FluentLocalizationBase } from './fluent_localization_base';
-import type { FluentMessageList } from './fluent_message_list';
-import type { FluentMessageOptions } from './fluent_message_options';
-import type { FluentVariableOptions } from './fluent_variable_options';
+import type { FluentDefinedMessage } from './fluent_defined_message.js';
+import type { FluentLocalizationBase } from './fluent_localization_base.js';
+import type { FluentMessageList } from './fluent_message_list.js';
+import type { FluentMessageOptions } from './fluent_message_options.js';
+import type { FluentVariableOptions } from './fluent_variable_options.js';
 export type FluentBaseMessageList = FluentLocalizationBase extends {
     messageList: infer T;
 } ? T extends infer MessageList ? MessageList : never : FluentMessageList;

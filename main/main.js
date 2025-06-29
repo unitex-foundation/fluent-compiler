@@ -2,24 +2,24 @@
 // Copyright (c) fluent-compiler contributors
 // Licensed under the MIT License
 /* eslint-disable no-restricted-imports */
-export * from '../dist/type_casting';
+export * from '../dist/type_casting.js';
 //
-export * from '../dist/compiler';
-export * from '../dist/parser';
-export * from '../dist/validators';
+export * from '../dist/compiler.js';
+export * from '../dist/parser.js';
+export * from '../dist/validators.js';
 //
-export * from '../dist/define_message';
+export * from '../dist/define_message.js';
 //
-export * from '../dist/fluent_date_variable_options';
-export * from '../dist/fluent_defined_message';
-export * from '../dist/fluent_enum_variable_options';
-export * from '../dist/fluent_localization_base';
-export * from '../dist/fluent_message_list';
-export * from '../dist/fluent_message_options';
-export * from '../dist/fluent_number_variable_options';
-export * from '../dist/fluent_plural_variable_options';
-export * from '../dist/fluent_variable_options';
-export * from '../dist/fluent_variable_type';
+export * from '../dist/fluent_date_variable_options.js';
+export * from '../dist/fluent_defined_message.js';
+export * from '../dist/fluent_enum_variable_options.js';
+export * from '../dist/fluent_localization_base.js';
+export * from '../dist/fluent_message_list.js';
+export * from '../dist/fluent_message_options.js';
+export * from '../dist/fluent_number_variable_options.js';
+export * from '../dist/fluent_plural_variable_options.js';
+export * from '../dist/fluent_variable_options.js';
+export * from '../dist/fluent_variable_type.js';
 // Example how to use localization in your project
 // 1. Replace base message list types by declaring a module which
 // will override internal empty `FluentLocalizationBase` interface

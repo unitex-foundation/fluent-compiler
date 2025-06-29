@@ -1,7 +1,7 @@
-import type { FluentDateVariableOptions } from './fluent_date_variable_options';
-import type { FluentEnumVariableOptions } from './fluent_enum_variable_options';
-import type { FluentNumberVariableOptions } from './fluent_number_variable_options';
-import type { FluentPluralVariableOptions } from './fluent_plural_variable_options';
+import type { FluentDateVariableOptions } from './fluent_date_variable_options.js';
+import type { FluentEnumVariableOptions } from './fluent_enum_variable_options.js';
+import type { FluentNumberVariableOptions } from './fluent_number_variable_options.js';
+import type { FluentPluralVariableOptions } from './fluent_plural_variable_options.js';
 type VariableOptions<VariableName extends string, VariableType extends string> = VariableType extends 'number' ? {
     [K in VariableName]?: FluentNumberVariableOptions;
 } : VariableType extends 'plural' ? {

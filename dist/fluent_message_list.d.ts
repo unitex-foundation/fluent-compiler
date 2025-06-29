@@ -1,4 +1,4 @@
-import type { FluentDefinedMessage } from './fluent_defined_message';
+import type { FluentDefinedMessage } from './fluent_defined_message.js';
 export type FluentMessageList = {
     [key: string]: string | FluentDefinedMessage;
 };

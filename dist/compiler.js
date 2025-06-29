@@ -1,8 +1,8 @@
 // Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
 // Copyright (c) fluent-compiler contributors
 // Licensed under the MIT License
-import { FluentVariableType } from './fluent_variable_type';
-import { parseVariableType, searchVariableInstances } from './parser';
+import { FluentVariableType } from './fluent_variable_type.js';
+import { parseVariableType, searchVariableInstances } from './parser.js';
 // TODO:
 // - support attributes
 // - support linked attributes

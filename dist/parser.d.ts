@@ -1,4 +1,4 @@
-import { FluentVariableType } from './fluent_variable_type';
+import { FluentVariableType } from './fluent_variable_type.js';
 export declare function parseVariableType(args: {
     message: string;
     name: string;
