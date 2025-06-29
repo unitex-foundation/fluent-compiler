@@ -16,9 +16,9 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "yarn build_src && yarn build_index",
+    "build": "yarn build_src && yarn build_main",
     "build_src": "rm -rf dist/ && tsc --project tsconfig-build-src.json && tsc-alias -p tsconfig-build-src.json && mv dist/src/* dist/ && rm -r dist/src",
-    "build_index": "tsc --project tsconfig-build-index.json && tsc-alias -p tsconfig-build-index.json",
+    "build_main": "tsc --project tsconfig-build-main.json && tsc-alias -p tsconfig-build-main.json",
     "lint": "eslint --cache --rule 'import/order: [warn, { newlines-between: never }]' --ext=js,mjs,cjs,ts,mts,cts,d.ts",
     "lint_all": "yarn lint './**/*.{js,mjs,cjs,ts,mts,cts,d.ts}'",
     "lint_fix": "yarn lint --fix",
@@ -30,6 +30,16 @@
     "lint_format_fix_all": "yarn lint_fix_all && yarn format_fix_all",
     "test": "bun scripts/test.ts"
   },
+  "main": "main/main.js",
+  "types": "main/main.d.ts",
+  "files": [
+    "dist/",
+    "main/",
+    "third_party_licenses/",
+    "LICENSE.md",
+    "README.md",
+    "Third-Party_Licenses.md"
+  ],
   "dependencies": {
     "@fluent/dedent": "^0.5.0"
   },

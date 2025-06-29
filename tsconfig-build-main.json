@@ -4,6 +4,6 @@
     "outDir": "./",
     "paths": {}
   },
-  "include": ["./index.ts"],
+  "include": ["./main/main.ts"],
   "exclude": []
 }

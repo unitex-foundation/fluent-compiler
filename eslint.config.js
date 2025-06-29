@@ -189,7 +189,7 @@ export default defineConfig(
     'yarn.lock',
     // Build
     'dist',
-    'index.*',
+    'main',
     // ESLint cache
     '.eslintcache',
     // Temp
@@ -206,7 +206,7 @@ export default defineConfig(
     '*.sln',
     '*.code-workspace',
     // Licenses
-    'Third-Party_Licenses',
+    'third_party_licenses',
   ]),
   getConfigForSubdir(),
 );

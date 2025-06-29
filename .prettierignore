@@ -18,7 +18,7 @@
 
 # Build
 /dist
-/index.*
+/main
 
 # ESLint cache
 /.eslintcache
@@ -42,4 +42,4 @@ yarn-error.log*
 /*.code-workspace
 
 # Licenses
-/Third-Party_Licenses
+/third_party_licenses

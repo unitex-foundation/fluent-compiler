@@ -34,11 +34,12 @@
   "include": ["./"],
   "exclude": [
     "./dist",
+    "./main",
     "./git",
     "./index.*",
     "./node_modules",
     "./temp",
-    "./Third-Party_Licenses",
+    "./third_party_licenses",
     "./yarn"
   ]
 }

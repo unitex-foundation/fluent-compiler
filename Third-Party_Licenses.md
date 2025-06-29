@@ -7,7 +7,7 @@
 - License:
   - Type: `Apache-2.0`
   - [Original Link](https://github.com/projectfluent/fluent/blob/master/LICENSE)
-  - [Local Copy](./Third-Party_Licenses/fluent.txt)
+  - [Local Copy](./third_party_licenses/fluent.txt)
 
 ## typescript
 
@@ -16,7 +16,7 @@
 - License:
   - Type: `Apache-2.0`
   - [Original Link](https://github.com/microsoft/TypeScript/blob/main/LICENSE.txt)
-  - [Local Copy](./Third-Party_Licenses/typescript.txt)
+  - [Local Copy](./third_party_licenses/typescript.txt)
 
 ## tsc-alias
 
@@ -25,7 +25,7 @@
 - License:
   - Type: `MIT`
   - [Original Link](https://github.com/justkey007/tsc-alias/blob/master/LICENSE)
-  - [Local Copy](./Third-Party_Licenses/tsc-alias.txt)
+  - [Local Copy](./third_party_licenses/tsc-alias.txt)
 
 ## node
 
@@ -34,7 +34,7 @@
 - License:
   - Type: `Custom`
   - [Original Link](https://github.com/nodejs/node/blob/main/LICENSE)
-  - [Local Copy](./Third-Party_Licenses/node.txt)
+  - [Local Copy](./third_party_licenses/node.txt)
 
 ## bun
 
@@ -43,7 +43,7 @@
 - License:
   - Type: `MIT`
   - [Original Link](https://github.com/oven-sh/bun/blob/main/LICENSE.md)
-  - [Local Copy](./Third-Party_Licenses/bun.md)
+  - [Local Copy](./third_party_licenses/bun.md)
 
 ## prettier
 
@@ -52,7 +52,7 @@
 - License:
   - Type: `MIT`
   - [Original Link](https://github.com/prettier/prettier/blob/main/LICENSE)
-  - [Local Copy](./Third-Party_Licenses/prettier.txt)
+  - [Local Copy](./third_party_licenses/prettier.txt)
 
 ## eslint
 
@@ -61,7 +61,7 @@
 - License:
   - Type: `MIT`
   - [Original Link](https://github.com/eslint/eslint/blob/main/LICENSE)
-  - [Local Copy](./Third-Party_Licenses/eslint.txt)
+  - [Local Copy](./third_party_licenses/eslint.txt)
 
 ## typescript-eslint
 
@@ -70,7 +70,7 @@
 - License:
   - Type: `MIT`
   - [Original Link](https://github.com/typescript-eslint/typescript-eslint/blob/main/LICENSE)
-  - [Local Copy](./Third-Party_Licenses/typescript-eslint.txt)
+  - [Local Copy](./third_party_licenses/typescript-eslint.txt)
 
 ## eslint-plugin-import
 
@@ -79,7 +79,7 @@
 - License:
   - Type: `MIT`
   - [Original Link](https://github.com/import-js/eslint-plugin-import/blob/main/LICENSE)
-  - [Local Copy](./Third-Party_Licenses/eslint-plugin-import.txt)
+  - [Local Copy](./third_party_licenses/eslint-plugin-import.txt)
 
 ## eslint-stylistic
 
@@ -88,7 +88,7 @@
 - License:
   - Type: `MIT`
   - [Original Link](https://github.com/eslint-stylistic/eslint-stylistic/blob/main/LICENSE)
-  - [Local Copy](./Third-Party_Licenses/eslint-stylistic.txt)
+  - [Local Copy](./third_party_licenses/eslint-stylistic.txt)
 
 ## eslint-import-resolver-typescript
 
@@ -97,7 +97,7 @@
 - License:
   - Type: `ISC`
   - [Original Link](https://github.com/import-js/eslint-import-resolver-typescript/blob/master/LICENSE)
-  - [Local Copy](./Third-Party_Licenses/_________.txt)
+  - [Local Copy](./third_party_licenses/eslint-import-resolver-typescript.txt)
 
 ## eslint-plugin-unused-imports
 
@@ -106,7 +106,7 @@
 - License:
   - Type: `MIT`
   - [Original Link](https://github.com/sweepline/eslint-plugin-unused-imports/blob/master/LICENSE)
-  - [Local Copy](./Third-Party_Licenses/eslint-plugin-unused-imports.txt)
+  - [Local Copy](./third_party_licenses/eslint-plugin-unused-imports.txt)
 
 ## globals
 
@@ -115,7 +115,7 @@
 - License:
   - Type: `MIT`
   - [Original Link](https://github.com/sindresorhus/globals/blob/main/license)
-  - [Local Copy](./Third-Party_Licenses/globals.txt)
+  - [Local Copy](./third_party_licenses/globals.txt)
 
 ## DefinitelyTyped
 
@@ -124,4 +124,4 @@
 - License:
   - Type: `MIT`
   - [Original Link](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/LICENSE)
-  - [Local Copy](./Third-Party_Licenses/definitely_typed.txt)
+  - [Local Copy](./third_party_licenses/definitely_typed.txt)
