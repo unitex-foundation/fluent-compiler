@@ -1,1 +1,1 @@
-{"version":3,"file":"fluent_localization_base.d.ts","sourceRoot":"","sources":["../../src/fluent_localization_base.ts"],"names":[],"mappings":"AAIA,MAAM,WAAW,sBAAsB;CAAG"}
+{"version":3,"file":"fluent_localization_base.d.ts","sourceRoot":"","sources":["../src/fluent_localization_base.ts"],"names":[],"mappings":"AAIA,MAAM,WAAW,sBAAsB;CAAG"}
