@@ -22,9 +22,9 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "prettier.singleQuote": true,
   "search.exclude": {
-    "**/.git": true,
-    "**/.vscode": true,
-    "**/.yarn": true,
+    "/.git": true,
+    "/.vscode": true,
+    "/.yarn": true,
     "/dist": true,
     "/node_modules": true,
     "/temp": true,

@@ -39,7 +39,6 @@
     "./dist",
     "./main",
     "./git",
-    "./index.*",
     "./node_modules",
     "./temp",
     "./third_party_licenses",
