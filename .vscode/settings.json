@@ -17,9 +17,6 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "files.watcherExclude": {
-    "**/.DS_Store": true,
-    "**/.git": true,
-    "**/Thumbs.db": true,
     "/.git": true,
     "/.vscode": true,
     "/.yarn": true,
