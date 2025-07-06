@@ -18,7 +18,7 @@
   "files.trimTrailingWhitespace": true,
   "files.watcherExclude": {
     "**/.DS_Store": true,
-    "**/.git": false,
+    "**/.git": true,
     "**/Thumbs.db": true,
     "/.git": true,
     "/.vscode": true,
