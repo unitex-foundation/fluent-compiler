@@ -76,6 +76,7 @@ function getConfigForSubdir(dirName) {
       ],
       '@stylistic/no-trailing-spaces': 'warn',
       '@stylistic/linebreak-style': ['warn', 'unix'],
+      '@stylistic/quote-props': ['warn', 'consistent-as-needed'],
 
       // TODO: constraints should be improved
       // '@stylistic/lines-between-class-members': [
@@ -83,6 +84,7 @@ function getConfigForSubdir(dirName) {
       //   { enforce: [{ blankLine: 'always', prev: '*', next: '*' }] },
       //   { exceptAfterSingleLine: true },
       // ],
+      '@stylistic/lines-between-class-members': 'off',
 
       '@stylistic/padding-line-between-statements': [
         'warn',
@@ -108,7 +110,6 @@ function getConfigForSubdir(dirName) {
       '@stylistic/no-tabs': 'warn',
       '@stylistic/semi': ['warn', 'always'],
       '@stylistic/padded-blocks': ['warn', 'never'],
-      '@stylistic/quote-props': ['warn', 'consistent-as-needed'],
 
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-namespace': 'off',

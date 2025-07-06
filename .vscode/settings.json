@@ -16,6 +16,19 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+  "files.watcherExclude": {
+    "**/.DS_Store": true,
+    "**/.git": false,
+    "**/Thumbs.db": true,
+    "/.git": true,
+    "/.vscode": true,
+    "/.yarn": true,
+    "/dist": true,
+    "/main": true,
+    "/node_modules": true,
+    "/temp": true,
+    "/Third-Party_Licenses": true
+  },
   "javascript.format.indentSwitchCase": true,
   "javascript.preferences.importModuleSpecifier": "non-relative",
   "javascript.preferences.quoteStyle": "single",
@@ -26,6 +39,7 @@
     "/.vscode": true,
     "/.yarn": true,
     "/dist": true,
+    "/main": true,
     "/node_modules": true,
     "/temp": true,
     "/Third-Party_Licenses": true
