@@ -36,12 +36,12 @@
   },
   "include": ["./"],
   "exclude": [
+    "./.git",
+    "./.yarn",
     "./dist",
     "./main",
-    "./git",
     "./node_modules",
     "./temp",
-    "./third_party_licenses",
-    "./yarn"
+    "./third_party_licenses"
   ]
 }
