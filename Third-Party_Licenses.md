@@ -108,6 +108,15 @@
   - [Original Link](https://github.com/sweepline/eslint-plugin-unused-imports/blob/master/LICENSE)
   - [Local Copy](./third_party_licenses/eslint-plugin-unused-imports.txt)
 
+## DefinitelyTyped
+
+- [Homepage](https://github.com/DefinitelyTyped/DefinitelyTyped)
+- [Repository](https://github.com/DefinitelyTyped/DefinitelyTyped)
+- License:
+  - Type: `MIT`
+  - [Original Link](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/LICENSE)
+  - [Local Copy](./third_party_licenses/definitely-typed.txt)
+
 ## globals
 
 - [Homepage](https://github.com/sindresorhus/globals)
@@ -116,12 +125,3 @@
   - Type: `MIT`
   - [Original Link](https://github.com/sindresorhus/globals/blob/main/license)
   - [Local Copy](./third_party_licenses/globals.txt)
-
-## DefinitelyTyped
-
-- [Homepage](https://github.com/DefinitelyTyped/DefinitelyTyped)
-- [Repository](https://github.com/DefinitelyTyped/DefinitelyTyped)
-- License:
-  - Type: `MIT`
-  - [Original Link](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/LICENSE)
-  - [Local Copy](./third_party_licenses/definitely_typed.txt)
