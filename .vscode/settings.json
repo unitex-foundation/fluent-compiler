@@ -24,7 +24,7 @@
     "/main": true,
     "/node_modules": true,
     "/temp": true,
-    "/Third-Party_Licenses": true
+    "/third_party_licenses": true
   },
   "javascript.format.indentSwitchCase": true,
   "javascript.preferences.importModuleSpecifier": "non-relative",
@@ -39,7 +39,7 @@
     "/main": true,
     "/node_modules": true,
     "/temp": true,
-    "/Third-Party_Licenses": true
+    "/third_party_licenses": true
   },
   "search.useIgnoreFiles": true,
   "typescript.format.indentSwitchCase": true,

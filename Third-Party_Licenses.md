@@ -32,7 +32,7 @@
 - [Homepage](https://nodejs.org)
 - [Repository](https://github.com/nodejs/node)
 - License:
-  - Type: `Custom`
+  - Type: `MIT`
   - [Original Link](https://github.com/nodejs/node/blob/main/LICENSE)
   - [Local Copy](./third_party_licenses/node.txt)
 
