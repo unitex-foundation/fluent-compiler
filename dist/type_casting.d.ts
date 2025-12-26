@@ -2,6 +2,7 @@ import type { FluentDefinedMessage } from './fluent_defined_message.js';
 import type { FluentLocalizationBase } from './fluent_localization_base.js';
 import type { FluentMessageList } from './fluent_message_list.js';
 import type { FluentMessageOptions } from './fluent_message_options.js';
+import type { FluentMessageValue } from './fluent_message_value.js';
 import type { FluentVariableOptions } from './fluent_variable_options.js';
 export type FluentBaseMessageList = FluentLocalizationBase extends {
     messageList: infer T;
@@ -27,7 +28,7 @@ export type FluentBaseMessageArgs = {
     [K in FluentBaseMessageKey]: FluentBaseMessageArgsAtKey<K> extends object ? FluentBaseMessageArgsAtKey<K> : never;
 }[FluentBaseMessageKey];
 export type FluentMessageListBasedOn<T extends FluentMessageList> = {
-    [K in keyof T]?: string | FluentDefinedMessage;
+    [K in keyof T]?: FluentMessageValue;
 };
 export {};
 //# sourceMappingURL=type_casting.d.ts.map

@@ -6,7 +6,7 @@ import type { FluentVariableOptions } from 'src/fluent_variable_options';
 import { FluentVariableType } from 'src/fluent_variable_type';
 import { parseVariableType, searchVariableInstances } from 'src/parser';
 import type { FluentMessageList } from 'src/fluent_message_list';
-import type { FluentDefinedMessage } from 'src/fluent_defined_message';
+import type { FluentMessageValue } from 'src/fluent_message_value';
 
 // TODO:
 // - support attributes
@@ -38,7 +38,7 @@ export function compile(
 }
 
 function compileMessageValue(args: {
-  message: string | FluentDefinedMessage;
+  message: FluentMessageValue;
   isLoggingEnabled?: boolean;
 }): string {
   if (args.isLoggingEnabled) {

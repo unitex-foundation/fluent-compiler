@@ -9,6 +9,7 @@ import type { FluentDefinedMessage } from 'src/fluent_defined_message';
 import type { FluentLocalizationBase } from 'src/fluent_localization_base';
 import type { FluentMessageList } from 'src/fluent_message_list';
 import type { FluentMessageOptions } from 'src/fluent_message_options';
+import type { FluentMessageValue } from 'src/fluent_message_value';
 import type { FluentVariableOptions } from 'src/fluent_variable_options';
 
 export type FluentBaseMessageList = FluentLocalizationBase extends {
@@ -91,5 +92,5 @@ export type FluentBaseMessageArgs = {
 }[FluentBaseMessageKey];
 
 export type FluentMessageListBasedOn<T extends FluentMessageList> = {
-  [K in keyof T]?: string | FluentDefinedMessage;
+  [K in keyof T]?: FluentMessageValue;
 };

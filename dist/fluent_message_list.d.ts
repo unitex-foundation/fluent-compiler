@@ -1,7 +1,40 @@
-import type { FluentDefinedMessage } from './fluent_defined_message.js';
+import type { FluentMessageValue } from './fluent_message_value.js';
+type ExpectedKey = string | number | bigint | boolean | null | undefined;
 export type FluentMessageList = {
-    [key: string]: string | FluentDefinedMessage;
+    [key: string]: FluentMessageValue;
 };
-export type FluentMessageListWithKeys<Key extends string> = Record<Key, string | FluentDefinedMessage>;
-export type FluentMessageListWithPrefix<Prefix extends string, Key extends string = string> = Record<`${Prefix}_${Key}`, string | FluentDefinedMessage>;
+export type FluentMessageListWithPrefix<P extends string> = Record<`${P}${string}`, FluentMessageValue>;
+export type FluentMessageListWithEnum<T extends string> = {
+    [V in T]: FluentMessageValue;
+};
+export type FluentMessageListWithArray<T extends string[] | readonly string[]> = {
+    [V in T[number]]: FluentMessageValue;
+};
+export type FluentMessageListWithObjectKeys<T extends {
+    [key: string]: string;
+}> = {
+    [K in keyof T]: FluentMessageValue;
+};
+export type FluentMessageListWithObjectValues<T extends {
+    [key: string]: string;
+}> = {
+    [K in keyof T as T[K]]: FluentMessageValue;
+};
+export type FluentMessageListWithPrefixedEnum<P extends string, T extends string> = {
+    [V in T as `${P}${V}`]: FluentMessageValue;
+};
+export type FluentMessageListWithPrefixedArray<P extends string, T extends string[] | readonly string[]> = {
+    [V in T[number] as `${P}${V}`]: FluentMessageValue;
+};
+export type FluentMessageListWithPrefixedObjectKeys<P extends string, T extends {
+    [key: string]: string;
+}> = {
+    [K in Extract<keyof T, ExpectedKey> as `${P}${K}`]: FluentMessageValue;
+};
+export type FluentMessageListWithPrefixedObjectValues<P extends string, T extends {
+    [key: string]: string;
+}> = {
+    [K in keyof T as `${P}${T[K]}`]: FluentMessageValue;
+};
+export {};
 //# sourceMappingURL=fluent_message_list.d.ts.map
