@@ -1,12 +1,12 @@
 // Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
-// Copyright (c) fluent-compiler contributors
+// Copyright (c) Fluent Compiler Contributors
 // Licensed under the MIT License
 
-import type { FluentVariableOptions } from 'src/fluent_variable_options';
-import { FluentVariableType } from 'src/fluent_variable_type';
-import { parseVariableType, searchVariableInstances } from 'src/parser';
-import type { FluentMessageList } from 'src/fluent_message_list';
-import type { FluentMessageValue } from 'src/fluent_message_value';
+import type { FluentVariableOptions } from 'fluent_variable_options';
+import { FluentVariableType } from 'fluent_variable_type';
+import { parseVariableType, searchVariableInstances } from 'parser';
+import type { FluentMessageList } from 'fluent_message_list';
+import type { FluentMessageValue } from 'fluent_message_value';
 
 // TODO:
 // - support attributes

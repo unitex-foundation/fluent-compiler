@@ -1,5 +1,5 @@
 // Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
-// Copyright (c) fluent-compiler contributors
+// Copyright (c) Fluent Compiler Contributors
 // Licensed under the MIT License
 import { FluentVariableType } from './fluent_variable_type.js';
 import { parseVariableType, searchVariableInstances } from './parser.js';
@@ -206,4 +206,3 @@ function convertToSelectableVariable(args) {
         .join('\n');
     return args.variable.replace('}', ` ->\n${selectors}\n  }`);
 }
-//# sourceMappingURL=compiler.js.map

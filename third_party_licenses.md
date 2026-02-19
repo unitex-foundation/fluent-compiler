@@ -125,3 +125,31 @@
   - Type: `MIT`
   - [Original Link](https://github.com/sindresorhus/globals/blob/main/license)
   - [Local Copy](./third_party_licenses/globals.txt)
+
+<!----------------------------------------------------------------------------->
+
+<!-- <style>
+p:has(+ ul),
+p:has(+ ol) {
+  margin-bottom: 0;
+}
+p + ul,
+p + ol {
+  margin-top: 0;
+}
+ul,
+ol {
+  list-style-position: inside;
+}
+ul:not(ul ul):not(ol ul),
+ol:not(ol ol):not(ul ol) {
+  padding-left: 0;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+</style> -->

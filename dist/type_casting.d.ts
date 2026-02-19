@@ -31,4 +31,3 @@ export type FluentMessageListBasedOn<T extends FluentMessageList> = {
     [K in keyof T]?: FluentMessageValue;
 };
 export {};
-//# sourceMappingURL=type_casting.d.ts.map

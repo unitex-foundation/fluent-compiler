@@ -1,8 +1,8 @@
 // Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
-// Copyright (c) fluent-compiler contributors
+// Copyright (c) Fluent Compiler Contributors
 // Licensed under the MIT License
 
-import type { FluentMessageValue } from 'src/fluent_message_value';
+import type { FluentMessageValue } from 'fluent_message_value';
 
 type ExpectedKey = string | number | bigint | boolean | null | undefined;
 

@@ -1,10 +1,10 @@
 // Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
-// Copyright (c) fluent-compiler contributors
+// Copyright (c) Fluent Compiler Contributors
 // Licensed under the MIT License
 
 import ftl from '@fluent/dedent';
-import { defineMessage as dm } from 'src/define_message';
-import type { FluentMessageList } from 'src/fluent_message_list';
+import { defineMessage as dm } from 'define_message';
+import type { FluentMessageList } from 'fluent_message_list';
 
 export const exampleMessages = Object.freeze({
   // Hello World

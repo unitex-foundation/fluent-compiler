@@ -1,11 +1,11 @@
 // Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
-// Copyright (c) fluent-compiler contributors
+// Copyright (c) Fluent Compiler Contributors
 // Licensed under the MIT License
 
 import {
   FLUENT_VARIABLE_TYPES_SET,
   type FluentVariableType,
-} from 'src/fluent_variable_type';
+} from 'fluent_variable_type';
 
 export function isFluentMessageType(
   value: unknown,

@@ -37,4 +37,3 @@ export type FluentMessageListWithPrefixedObjectValues<P extends string, T extend
     [K in keyof T as `${P}${T[K]}`]: FluentMessageValue;
 };
 export {};
-//# sourceMappingURL=fluent_message_list.d.ts.map

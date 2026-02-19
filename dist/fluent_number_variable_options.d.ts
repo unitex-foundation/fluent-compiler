@@ -5,4 +5,3 @@ export type FluentNumberVariableOptions = {
     variants?: Record<Intl.LDMLPluralRule | string | number, string>;
     defaultVariant?: Intl.LDMLPluralRule | string | number;
 };
-//# sourceMappingURL=fluent_number_variable_options.d.ts.map

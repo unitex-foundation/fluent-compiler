@@ -1,9 +1,9 @@
 // Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
-// Copyright (c) fluent-compiler contributors
+// Copyright (c) Fluent Compiler Contributors
 // Licensed under the MIT License
 
-import { FluentVariableType } from 'src/fluent_variable_type';
-import { isFluentMessageType } from 'src/validators';
+import { FluentVariableType } from 'fluent_variable_type';
+import { isFluentMessageType } from 'validators';
 
 export function parseVariableType(args: {
   message: string;

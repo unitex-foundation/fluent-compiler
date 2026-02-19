@@ -1,16 +1,16 @@
 // Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
-// Copyright (c) fluent-compiler contributors
+// Copyright (c) Fluent Compiler Contributors
 // Licensed under the MIT License
 //
 // Inspired by WebDevSimplified
 // https://github.com/WebDevSimplified/intl-crash-course
 
-import type { FluentDefinedMessage } from 'src/fluent_defined_message';
-import type { FluentLocalizationBase } from 'src/fluent_localization_base';
-import type { FluentMessageList } from 'src/fluent_message_list';
-import type { FluentMessageOptions } from 'src/fluent_message_options';
-import type { FluentMessageValue } from 'src/fluent_message_value';
-import type { FluentVariableOptions } from 'src/fluent_variable_options';
+import type { FluentDefinedMessage } from 'fluent_defined_message';
+import type { FluentLocalizationBase } from 'fluent_localization_base';
+import type { FluentMessageList } from 'fluent_message_list';
+import type { FluentMessageOptions } from 'fluent_message_options';
+import type { FluentMessageValue } from 'fluent_message_value';
+import type { FluentVariableOptions } from 'fluent_variable_options';
 
 export type FluentBaseMessageList = FluentLocalizationBase extends {
   messageList: infer T;

@@ -5,4 +5,3 @@ export declare enum FluentVariableType {
     Plural = "plural"
 }
 export declare const FLUENT_VARIABLE_TYPES_SET: ReadonlySet<FluentVariableType>;
-//# sourceMappingURL=fluent_variable_type.d.ts.map

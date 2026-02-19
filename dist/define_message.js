@@ -1,5 +1,5 @@
 // Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
-// Copyright (c) fluent-compiler contributors
+// Copyright (c) Fluent Compiler Contributors
 // Licensed under the MIT License
 //
 // Inspired by WebDevSimplified
@@ -7,4 +7,3 @@
 export function defineMessage(value, options) {
     return { value, options };
 }
-//# sourceMappingURL=define_message.js.map

@@ -19,4 +19,3 @@ export declare function defineMessage<M_V extends MessageValue, M_O extends Mess
     options?: M_O;
 };
 export {};
-//# sourceMappingURL=define_message.d.ts.map

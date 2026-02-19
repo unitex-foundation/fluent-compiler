@@ -4,4 +4,3 @@ export type FluentEnumVariableOptions = {
     };
     defaultVariant?: string | number;
 };
-//# sourceMappingURL=fluent_enum_variable_options.d.ts.map

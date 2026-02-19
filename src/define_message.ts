@@ -1,14 +1,14 @@
 // Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
-// Copyright (c) fluent-compiler contributors
+// Copyright (c) Fluent Compiler Contributors
 // Licensed under the MIT License
 //
 // Inspired by WebDevSimplified
 // https://github.com/WebDevSimplified/intl-crash-course
 
-import type { FluentDateVariableOptions } from 'src/fluent_date_variable_options';
-import type { FluentEnumVariableOptions } from 'src/fluent_enum_variable_options';
-import type { FluentNumberVariableOptions } from 'src/fluent_number_variable_options';
-import type { FluentPluralVariableOptions } from 'src/fluent_plural_variable_options';
+import type { FluentDateVariableOptions } from 'fluent_date_variable_options';
+import type { FluentEnumVariableOptions } from 'fluent_enum_variable_options';
+import type { FluentNumberVariableOptions } from 'fluent_number_variable_options';
+import type { FluentPluralVariableOptions } from 'fluent_plural_variable_options';
 
 type VariableOptions<
   VariableName extends string,

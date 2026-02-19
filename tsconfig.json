@@ -4,9 +4,10 @@
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "alwaysStrict": true,
-    "baseUrl": "./",
+    "baseUrl": "./src",
+    "composite": false,
     "declaration": true,
-    "declarationMap": true,
+    "declarationMap": false,
     "esModuleInterop": true,
     "exactOptionalPropertyTypes": false,
     "experimentalDecorators": true,
@@ -16,32 +17,34 @@
     "module": "preserve",
     "moduleDetection": "force",
     "moduleResolution": "bundler",
+    "newLine": "LF",
     "noEmit": false,
     "outDir": "./dist",
+    "removeComments": false,
     "resolveJsonModule": true,
     "rootDir": "./",
     "skipLibCheck": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "strict": true,
     "target": "ESNext",
+    "types": ["node"],
     "useDefineForClassFields": true,
     "verbatimModuleSyntax": true,
     "paths": {
-      "resources/*": ["resources/*"],
-      "src/*": ["src/*"]
+      "resources/*": ["../resources/*"]
     }
   },
   "tsc-alias": {
     "resolveFullPaths": true
   },
-  "include": ["./"],
+  "include": ["**/*.ts", "**/*.js"],
   "exclude": [
-    "./.git",
-    "./.yarn",
-    "./dist",
-    "./main",
-    "./node_modules",
-    "./temp",
-    "./third_party_licenses"
+    ".git",
+    ".vscode",
+    ".yarn",
+    "dist",
+    "node_modules",
+    "temp",
+    "third_party_licenses"
   ]
 }

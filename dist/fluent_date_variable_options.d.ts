@@ -5,4 +5,3 @@ export type FluentDateVariableOptions = {
     };
     defaultVariant?: string | number;
 };
-//# sourceMappingURL=fluent_date_variable_options.d.ts.map

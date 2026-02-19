@@ -11,4 +11,3 @@ export declare function searchVariableInstances(args: {
     variable: string;
     index: number;
 }[];
-//# sourceMappingURL=parser.d.ts.map

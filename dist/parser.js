@@ -1,5 +1,5 @@
 // Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
-// Copyright (c) fluent-compiler contributors
+// Copyright (c) Fluent Compiler Contributors
 // Licensed under the MIT License
 import { FluentVariableType } from './fluent_variable_type.js';
 import { isFluentMessageType } from './validators.js';
@@ -68,4 +68,3 @@ export function searchVariableInstances(args) {
         return { variable, index: match.index + match[0].indexOf(variable) };
     });
 }
-//# sourceMappingURL=parser.js.map
