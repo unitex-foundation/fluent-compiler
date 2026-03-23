@@ -1,18 +1,18 @@
 {
-  "name": "fluent-compiler",
+  "name": "@unitex/fluent-compiler",
   "description": "Compiler from TypeScript to Fluent Translation List (FTL)",
   "author": {
     "name": "Grigorii Lutkov",
     "email": "friend.lga@gmail.com"
   },
   "version": "0.0.1",
-  "homepage": "https://trulab.ru/grigorii-lutkov/fluent-compiler",
+  "homepage": "https://trulab.ru/unitex/fluent-compiler",
   "repository": {
     "type": "git",
-    "url": "https://trulab.ru/grigorii-lutkov/fluent-compiler.git"
+    "url": "https://trulab.ru/unitex/fluent-compiler.git"
   },
   "bugs": {
-    "url": "https://trulab.ru/grigorii-lutkov/fluent-compiler/-/issues"
+    "url": "https://trulab.ru/unitex/fluent-compiler/-/issues"
   },
   "license": "MIT",
   "scripts": {
@@ -34,6 +34,8 @@
     "dist/",
     "third_party_licenses/",
     "CONTRIBUTORS.md",
+    "COPYING.md",
+    "COPYRIGHT.md",
     "LICENSE.md",
     "README.md",
     "third_party_licenses.md"

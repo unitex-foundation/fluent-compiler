@@ -1,4 +1,4 @@
-# Fluent Compiler
+# UNITEX Fluent Compiler
 
 Compiler from TypeScript to Fluent Translation List (FTL)
 
@@ -32,22 +32,37 @@ Example how to use localization in your project:
    }
    ```
 
-# Third-Party Licenses
+# Code of Conduct
 
-[Read Here](/third_party_licenses.md)
+[Read Here](./docs/CODE_OF_CONDUCT.md)
+
+# Contributing
+
+[Read Here](./CONTRIBUTING.md)
 
 # Contributors
 
-[Read Here](/CONTRIBUTORS.md)
+[Read Here](./CONTRIBUTORS.md)
 
-# Copyrights
+# Maintainers
 
-- Copyright (c) 2025 Grigorii Lutkov \<friend.lga@gmail.com\>
-- Copyright (c) [Fluent Compiler Contributors](/CONTRIBUTORS.md)
+[Read Here](./MAINTAINERS.md)
+
+# Copyright
+
+[Read Here](./COPYRIGHT.md)
+
+# Third-Party Licenses
+
+[Read Here](./third_party_licenses.md)
 
 # License
 
-Licensed under the [MIT License](/LICENSE.md)
+[Read Here](./LICENSE.md)
+
+# Copying
+
+[Read Here](./COPYING.md)
 
 <!----------------------------------------------------------------------------->
 

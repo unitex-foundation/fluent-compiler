@@ -610,6 +610,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@unitex/fluent-compiler@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@unitex/fluent-compiler@workspace:."
+  dependencies:
+    "@fluent/dedent": "npm:^0.5.0"
+    "@stylistic/eslint-plugin": "npm:4.4.1"
+    "@types/bun": "npm:1"
+    "@types/node": "npm:22.18.0"
+    "@typescript-eslint/parser": "npm:8.34.1"
+    bun: "npm:1.2.17"
+    eslint: "npm:9.29.0"
+    eslint-import-resolver-typescript: "npm:4.4.3"
+    eslint-plugin-import: "npm:2.32.0"
+    eslint-plugin-unused-imports: "npm:4.1.4"
+    globals: "npm:16.2.0"
+    prettier: "npm:3.5.3"
+    tsc-alias: "npm:1.8.16"
+    typescript: "npm:5.8.3"
+    typescript-eslint: "npm:8.34.1"
+  languageName: unknown
+  linkType: soft
+
 "@unrs/resolver-binding-android-arm-eabi@npm:1.11.1":
   version: 1.11.1
   resolution: "@unrs/resolver-binding-android-arm-eabi@npm:1.11.1"
@@ -1766,28 +1788,6 @@ __metadata:
   checksum: 10c0/e957a1c6b0254aa15b8cce8533e24165abd98fadc98575db082b786b5da1b7d72062b81bfdcd1da2f4d46b6ed93bec2434e62333e9b4261d79ef2e75a10dd538
   languageName: node
   linkType: hard
-
-"fluent-compiler@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "fluent-compiler@workspace:."
-  dependencies:
-    "@fluent/dedent": "npm:^0.5.0"
-    "@stylistic/eslint-plugin": "npm:4.4.1"
-    "@types/bun": "npm:1"
-    "@types/node": "npm:22.18.0"
-    "@typescript-eslint/parser": "npm:8.34.1"
-    bun: "npm:1.2.17"
-    eslint: "npm:9.29.0"
-    eslint-import-resolver-typescript: "npm:4.4.3"
-    eslint-plugin-import: "npm:2.32.0"
-    eslint-plugin-unused-imports: "npm:4.1.4"
-    globals: "npm:16.2.0"
-    prettier: "npm:3.5.3"
-    tsc-alias: "npm:1.8.16"
-    typescript: "npm:5.8.3"
-    typescript-eslint: "npm:8.34.1"
-  languageName: unknown
-  linkType: soft
 
 "for-each@npm:^0.3.3, for-each@npm:^0.3.5":
   version: 0.3.5

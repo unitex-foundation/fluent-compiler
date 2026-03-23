@@ -1,6 +1,7 @@
+// SPDX-License-Identifier: MIT
 // Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
 // Copyright (c) Fluent Compiler Contributors
-// Licensed under the MIT License
+// See README.md, COPYING.md, CONTRIBUTING.md and CONTRIBUTORS.md for details
 
 import type { FluentMessageOptions } from 'fluent_message_options';
 

@@ -30,10 +30,13 @@
     "temp": true,
     "third_party_licenses": true
   },
-  "javascript.format.indentSwitchCase": true,
-  "javascript.preferences.importModuleSpecifier": "non-relative",
-  "javascript.preferences.quoteStyle": "single",
-  "javascript.updateImportsOnFileMove.enabled": "always",
+  "js/ts.format.indentSwitchCase": true,
+  "js/ts.preferences.importModuleSpecifier": "non-relative",
+  "js/ts.preferences.quoteStyle": "single",
+  "js/ts.tsdk.path": "node_modules/typescript/lib",
+  "js/ts.tsserver.node.path": "node",
+  "js/ts.tsserver.watchOptions": { "watchFile": "useFsEvents" },
+  "js/ts.updateImportsOnFileMove.enabled": "always",
   "prettier.singleQuote": true,
   "search.exclude": {
     ".git": true,
@@ -44,11 +47,5 @@
     "temp": true,
     "third_party_licenses": true
   },
-  "search.useIgnoreFiles": true,
-  "typescript.format.indentSwitchCase": true,
-  "typescript.preferences.importModuleSpecifier": "non-relative",
-  "typescript.preferences.quoteStyle": "single",
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.tsserver.maxTsServerMemory": 4096,
-  "typescript.updateImportsOnFileMove.enabled": "always"
+  "search.useIgnoreFiles": true
 }
