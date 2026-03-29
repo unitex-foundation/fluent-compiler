@@ -1,10 +1,7 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
-// Copyright (c) Fluent Compiler Contributors
+// Copyright (c) UNITEX Fluent Compiler Contributors
 // See README.md, COPYING.md, CONTRIBUTING.md and CONTRIBUTORS.md for details
-//
-// Inspired by WebDevSimplified
-// https://github.com/WebDevSimplified/intl-crash-course
 
 import type { FluentDateVariableOptions } from 'fluent_date_variable_options';
 import type { FluentEnumVariableOptions } from 'fluent_enum_variable_options';
@@ -37,7 +34,7 @@ type MessageOptions<M_V extends MessageValue> =
 
 type MessageValue = string;
 
-export function defineMessage<
+export function defineFluentMessage<
   M_V extends MessageValue,
   M_O extends MessageOptions<M_V>,
 >(value: M_V, options?: M_O): { value: M_V; options?: M_O } {

@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
-// Copyright (c) Fluent Compiler Contributors
+// Copyright (c) UNITEX Fluent Compiler Contributors
 // See README.md, COPYING.md, CONTRIBUTING.md and CONTRIBUTORS.md for details
 
 import type { FluentMessageValue } from 'fluent_message_value';
 
-type ExpectedKey = string | number | bigint | boolean | null | undefined;
+type ExpectedKey = undefined | null | boolean | number | bigint | string;
 
 export type FluentMessageList = { [key: string]: FluentMessageValue };
 
@@ -30,23 +30,44 @@ export type FluentMessageListWithObjectValues<
 > = { [K in keyof T as T[K]]: FluentMessageValue };
 
 export type FluentMessageListWithPrefixedEnum<
-  P extends string,
   T extends string,
+  P extends string,
 > = { [V in T as `${P}${V}`]: FluentMessageValue };
 
 export type FluentMessageListWithPrefixedArray<
-  P extends string,
   T extends string[] | readonly string[],
+  P extends string,
 > = { [V in T[number] as `${P}${V}`]: FluentMessageValue };
 
 export type FluentMessageListWithPrefixedObjectKeys<
-  P extends string,
   T extends { [key: string]: string },
+  P extends string,
 > = {
   [K in Extract<keyof T, ExpectedKey> as `${P}${K}`]: FluentMessageValue;
 };
 
 export type FluentMessageListWithPrefixedObjectValues<
-  P extends string,
   T extends { [key: string]: string },
+  P extends string,
 > = { [K in keyof T as `${P}${T[K]}`]: FluentMessageValue };
+
+export type FluentMessageListBasedOn<T extends FluentMessageList> = {
+  [K in keyof T]?: FluentMessageValue;
+};
+
+// -----------------------------------------------------------------------------
+
+export function defineFluentMessageListWithPrefix<
+  T extends FluentMessageList,
+  P extends string,
+>(
+  list: T,
+  prefix: P,
+): {
+  [K in Extract<keyof T, ExpectedKey> as `${P}${K}`]: T[K];
+} {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+  return Object.fromEntries(
+    Object.entries(list).map(([key, value]) => [`${prefix}${key}`, value]),
+  ) as any;
+}

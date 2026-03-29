@@ -105,7 +105,7 @@ If You add new files, each file must include special header notice comment at th
    ```
 4. Project contributors copyright:
    ```
-   Copyright (c) Fluent Compiler Contributors
+   Copyright (c) UNITEX Fluent Compiler Contributors
    ```
 5. Instructions and details:
    ```
@@ -117,7 +117,7 @@ Example of the full header notice in the TypeScript file:
 ```ts
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2023 John Smit <john.smith@example.com>
-// Copyright (c) Fluent Compiler Contributors
+// Copyright (c) UNITEX Fluent Compiler Contributors
 // See README.md, COPYING.md, CONTRIBUTING.md and CONTRIBUTORS.md for details
 ```
 

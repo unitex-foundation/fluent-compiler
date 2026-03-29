@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
-// Copyright (c) Fluent Compiler Contributors
+// Copyright (c) UNITEX Fluent Compiler Contributors
 // See README.md, COPYING.md, CONTRIBUTING.md and CONTRIBUTORS.md for details
 
 import { FluentVariableType } from 'fluent_variable_type';
-import { isFluentMessageType } from 'validators';
+import { isFluentVariableType } from 'validators';
 
 export function parseVariableType(args: {
   message: string;
@@ -37,7 +37,7 @@ export function parseVariableType(args: {
       `Unexpected parsed variable name in the message: ${args.message}\n\n- Expected "${args.name}"\n- Received "${name}"`,
     );
   }
-  if (!isFluentMessageType(type)) {
+  if (!isFluentVariableType(type)) {
     throw new Error(
       `Unexpected parsed type of variable "${args.name}" in the message: ${args.message}`,
     );

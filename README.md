@@ -7,28 +7,45 @@ Compiler from TypeScript to Fluent Translation List (FTL)
 Example how to use localization in your project:
 
 1. Replace base message list types by declaring a module which
-   will override internal empty `FluentLocalizationBase` interface:
+   will override internal empty `FluentSchema` interface:
    ```ts
-   declare module 'fluent-compiler/dist/fluent_localization_base' {
-     interface FluentLocalizationBase {
-       messageList: typeof YourFluentMessageList;
+   declare module '@unitex/fluent-compiler/dist/fluent_schema' {
+     interface FluentSchema {
+       messageList: typeof YOUR_FLUENT_MESSAGE_LIST;
      }
    }
    ```
 1. Implement the `t` functions:
+
    ```ts
+   const localeCodes = ['en', 'ru'];
+   const translationLists = localeCodes.map((localeCode) =>
+     fs.readFileSync(`/path/to/${localeCode}_translations.ftl`, 'utf8'),
+   );
+   const resources = translationLists.map(
+     (translations) => new FluentResource(translations),
+   );
+   const [enBundle, ruBundle] = resources.map((resource) => {
+     const bundle = new FluentBundle(locale);
+     bundle.addResource(resource);
+   });
+   const bundles = {
+     en: enBundle,
+     ru: ruBundle,
+   };
+
+   export function t<K extends FluentSchemaKeyWitoutVariables>(key: K): string;
    export function t<
-     K extends FluentBaseMessageKeyWitoutVariables
-   >(key: K): string;
-   export function t<
-     K extends FluentBaseMessageKeyWithVariables,
-     A extends FluentBaseMessageArgsAtKey<K>,
+     K extends FluentSchemaKeyWithVariables,
+     A extends FluentSchemaArgsAtKey<K>,
    >(key: K, args: A): string;
    export function t<
-     K extends FluentBaseMessageKey,
-     A extends FluentBaseMessageArgsAtKey<K>,
+     K extends FluentSchemaKey,
+     A extends FluentSchemaArgsAtKey<K>,
    >(key: K, args?: A): string {
-     return ...
+     const bundle = bundles[currentLocaleCode];
+     const message = bundle.getMessage(key);
+     return bundle.formatPattern(message.value, args);
    }
    ```
 
@@ -47,6 +64,11 @@ Example how to use localization in your project:
 # Maintainers
 
 [Read Here](./MAINTAINERS.md)
+
+# Credits
+
+Inspired by WebDevSimplified
+[`intl-crash-course`](github.com/WebDevSimplified/intl-crash-course)
 
 # Copyright
 

@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
-// Copyright (c) Fluent Compiler Contributors
+// Copyright (c) UNITEX Fluent Compiler Contributors
 // See README.md, COPYING.md, CONTRIBUTING.md and CONTRIBUTORS.md for details
 
 import ftl from '@fluent/dedent';
-import { defineMessage as dm } from 'define_message';
+import { defineFluentMessage as dm } from 'fluent_message';
 import type { FluentMessageList } from 'fluent_message_list';
 
 export const exampleMessages = Object.freeze({

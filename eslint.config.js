@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
-// Copyright (c) Fluent Compiler Contributors
+// Copyright (c) UNITEX Fluent Compiler Contributors
 // See README.md, COPYING.md, CONTRIBUTING.md and CONTRIBUTORS.md for details
 
 import eslint from '@eslint/js';
@@ -98,6 +98,11 @@ function getConfigForSubdir(dirName) {
           blankLine: 'always',
           prev: ['function', 'class', 'interface'],
           next: '*',
+        },
+        {
+          blankLine: 'never',
+          prev: ['function-overload'],
+          next: ['function', 'function-overload'],
         },
       ],
       '@stylistic/no-multi-spaces': 'warn',
