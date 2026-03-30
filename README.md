@@ -4,50 +4,126 @@ Compiler from TypeScript to Fluent Translation List (FTL)
 
 # Usage
 
-Example how to use localization in your project:
+1. Define your message lists in default locale:
 
-1. Replace base message list types by declaring a module which
-   will override internal empty `FluentSchema` interface:
+   ```ts
+   import {
+     type FluentMessageList,
+     defineFluentMessage as dm,
+     defineFluentMessageListWithPrefix,
+   } from '@unitex/fluent-compiler';
+
+   // Message list can be a simple dictionary of strings
+
+   const messagesEn = {
+     hello: 'Hello World!',
+     welcome: 'Welcome, {$user}!',
+     unreadEmails: dm('{$unreadEmails:plural}', {
+       $unreadEmails: {
+         variants: {
+           other: 'You have {$} unread emails.', // default
+           one: 'You have one unread email.',
+         },
+       },
+     }),
+   } as const satisfies FluentMessageList;
+
+   // Or can have a prefix to make navigation easier
+
+   const exampleNamespace = 'example_';
+   const namespacedMessagesEn = defineFluentMessageListWithPrefix(
+     {
+       'hello': 'Hello Namespace!',
+       '-brand-name': 'My Brand',
+       'welcome': `Welcome to {${exampleNamespace}-brand-name}.`,
+       'your-rank': dm('{$pos:number}', {
+         $pos: {
+           params: { type: 'cardinal' },
+           variants: {
+             1: 'You finished first!',
+             one: 'You finished {$}st',
+             two: 'You finished {$}nd',
+             few: 'You finished {$}rd',
+             other: 'You finished {$}th',
+           },
+           defaultVariant: 'other',
+         },
+       }),
+     } as const satisfies FluentMessageList,
+     exampleNamespace,
+   );
+   ```
+
+1. Define message lists in the translation locale:
+
+   ```ts
+   import type { FluentMessageListBasedOn } from '@unitex/fluent-compiler';
+
+   const messagesRu = castToReadonly({
+     hello: 'Привет мир!',
+     welcome: 'Добро пожаловать, {$user}!',
+     unreadEmails: dm('{$unreadEmails:plural}', {
+       $unreadEmails: {
+         variants: {
+           other: 'У вас {$} непрочитанных сообщений.', // default
+           one: 'У вас одно непрочитанное сообщение.',
+         },
+       },
+     }),
+   } as const satisfies FluentMessageListBasedOn<typeof messagesEn>);
+   ```
+
+1. To enable autocompletion you need to provide a message schema by redeclaring
+   `FluentSchema` interface with your defined message lists
+   (only in default locale):
+
    ```ts
    declare module '@unitex/fluent-compiler/dist/fluent_schema' {
-     interface FluentSchema {
-       messageList: typeof YOUR_FLUENT_MESSAGE_LIST;
-     }
+     type CustomMessages = typeof messagesEn & typeof namespacedMessagesEn;
+     interface FluentSchema extends CustomMessages {}
    }
    ```
-1. Implement the `t` functions:
+
+1. Compile message lists into `.ftl` translation files:
 
    ```ts
-   const localeCodes = ['en', 'ru'];
-   const translationLists = localeCodes.map((localeCode) =>
-     fs.readFileSync(`/path/to/${localeCode}_translations.ftl`, 'utf8'),
-   );
-   const resources = translationLists.map(
-     (translations) => new FluentResource(translations),
-   );
-   const [enBundle, ruBundle] = resources.map((resource) => {
-     const bundle = new FluentBundle(locale);
-     bundle.addResource(resource);
-   });
-   const bundles = {
-     en: enBundle,
-     ru: ruBundle,
-   };
+   import { compile } from '@unitex/fluent-compiler';
 
-   export function t<K extends FluentSchemaKeyWitoutVariables>(key: K): string;
-   export function t<
-     K extends FluentSchemaKeyWithVariables,
-     A extends FluentSchemaArgsAtKey<K>,
-   >(key: K, args: A): string;
-   export function t<
-     K extends FluentSchemaKey,
-     A extends FluentSchemaArgsAtKey<K>,
-   >(key: K, args?: A): string {
-     const bundle = bundles[currentLocaleCode];
-     const message = bundle.getMessage(key);
-     return bundle.formatPattern(message.value, args);
-   }
+   const compiledMessagesEn = compile(messagesEn);
+   fs.writeFileSync('locales/en/messages.ftl', compiledMessagesEn);
    ```
+
+1. Use `FluentReader` to get translated messages
+   (it provides simple barebone functionality):
+
+   ```ts
+   import { FluentReader } from '@unitex/fluent-compiler';
+
+   const reader = new FluentReader({
+     currentLocaleCode: 'en-GB',
+     defaultLocaleCode: 'en-GB',
+     fallbackLocaleCodes: ['en-US']
+     supportedLocaleCodes: new Set(['en-GB', 'en-US', 'ru']),
+     translations: new Map([
+       ['en-GB', ['locales/en-GB/messages.ftl', 'locales/en-GB/namespaced_messages.ftl']],
+       ['en-US', ['locales/en-US/messages.ftl', 'locales/en-US/namespaced_messages.ftl']],
+       ['ru',    ['locales/ru/messages.ftl',    'locales/ru/namespaced_messages.ftl']],
+     ]),
+   });
+
+   reader.getLocalizedString('welcome', { user: 'John Smith' });
+
+   reader.setCurrentLocaleCode('ru');
+   reader.setFallbackLocaleCodes(undefined);
+
+   reader.getLocalizedString('welcome', { user: 'Иван Кузнецов' });
+   ```
+
+1. Optional: write your own `t` function inspired by `FluentReader`. See implementation in the [`src/fluent_reader.ts`](src/fluent_reader.ts) file
+
+1. Optional: take a look at more example messages at [`resources/example_messages.ts`](resources/example_messages.ts) file
+
+1. Optional: learn more about [`Project Fluent`](projectfluent.org)
 
 # Code of Conduct
 

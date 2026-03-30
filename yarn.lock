@@ -128,10 +128,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fluent/bundle@npm:^0.19.0":
+  version: 0.19.1
+  resolution: "@fluent/bundle@npm:0.19.1"
+  checksum: 10c0/87ed606b47c37fe722b0c07808344115e51720bc3e33e1661d4b8e21ca629761592bac96af27c7cb5be0dd03ec6175207019c387f2a37c42c58aa56feb857cc0
+  languageName: node
+  linkType: hard
+
 "@fluent/dedent@npm:^0.5.0":
   version: 0.5.0
   resolution: "@fluent/dedent@npm:0.5.0"
   checksum: 10c0/89f593647847f776be6a3cd709311064c3c1cb2d7dd40910f1c0a1d7eb9e50963a7b72bcec8f7afe94130349bcd663622ac1db56752b338c7bfc5d608d7f61e1
+  languageName: node
+  linkType: hard
+
+"@fluent/langneg@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "@fluent/langneg@npm:0.7.0"
+  checksum: 10c0/081f8fb3f11cecae91647e8dfd70966fdcd93b1ca531eb4dc36cf867d33f8e4196f5fe2e9d0d3ada163d6cf810aef98c781fbdcff218a1c7fc83106162425ab2
   languageName: node
   linkType: hard
 
@@ -614,7 +628,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@unitex/fluent-compiler@workspace:."
   dependencies:
+    "@fluent/bundle": "npm:^0.19.0"
     "@fluent/dedent": "npm:^0.5.0"
+    "@fluent/langneg": "npm:^0.7.0"
     "@stylistic/eslint-plugin": "npm:4.4.1"
     "@types/bun": "npm:1"
     "@types/node": "npm:22.18.0"

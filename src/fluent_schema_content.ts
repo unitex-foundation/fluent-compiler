@@ -6,10 +6,8 @@
 import type { FluentSchema } from 'fluent_schema';
 import type { FluentMessageList } from 'fluent_message_list';
 
-export type FluentSchemaContent = FluentSchema extends {
-  content: infer T;
-}
-  ? T extends infer MessageList
-    ? MessageList
+export type FluentSchemaContent = FluentSchema extends infer T
+  ? T extends FluentMessageList
+    ? T
     : never
   : FluentMessageList;

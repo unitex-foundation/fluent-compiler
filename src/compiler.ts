@@ -49,9 +49,9 @@ function compileMessageValue(args: {
   if (typeof args.message === 'string') {
     if (args.isLoggingEnabled) {
       console.log('Result: Compiled message:');
-      console.log('- From');
+      console.log('- from:');
       console.log(args.message);
-      console.log('- To');
+      console.log('- to:');
       console.log(args.message);
     }
     return args.message;
@@ -61,9 +61,9 @@ function compileMessageValue(args: {
   if (messageOptions === undefined) {
     if (args.isLoggingEnabled) {
       console.log('Result: Compiled message:');
-      console.log('- From');
+      console.log('- from:');
       console.log(args.message);
-      console.log('- To');
+      console.log('- to:');
       console.log(messageValue);
     }
     return messageValue;
@@ -81,9 +81,9 @@ function compileMessageValue(args: {
   }
   if (args.isLoggingEnabled) {
     console.log('Result: Compiled message:');
-    console.log('- From');
+    console.log('- from:');
     console.log(args.message);
-    console.log('- To');
+    console.log('- to:');
     console.log(messageValue);
   }
   return messageValue;
@@ -161,9 +161,9 @@ function compileVariableInstance(args: {
   const messageValue = sliceBefore + selectableVariable + sliceAfter;
   if (args.isLoggingEnabled) {
     console.log('Updated message body:');
-    console.log('- From');
+    console.log('- from:');
     console.log(args.messageValue);
-    console.log('- To');
+    console.log('- to:');
     console.log(messageValue);
   }
   return messageValue;

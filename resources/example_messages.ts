@@ -129,7 +129,6 @@ export const exampleMessages = Object.freeze({
         other: 'You have {$} unread emails.', // default
         one: 'You have one unread email.',
       },
-      defaultVariant: 'other',
     },
   }),
   'your-score': ftl`
@@ -162,7 +161,7 @@ export const exampleMessages = Object.freeze({
   'your-rank-compiled': dm('{$pos:number}', {
     $pos: {
       params: {
-        type: 'cardinal',
+        type: 'ordinal',
       },
       variants: {
         1: 'You finished first!',
