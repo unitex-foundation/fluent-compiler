@@ -16,10 +16,12 @@ export * from 'fluent_message_value';
 export * from 'fluent_message';
 export * from 'fluent_number_variable_options';
 export * from 'fluent_plural_variable_options';
-export * from 'fluent_reader';
+export * from 'fluent_reader_base';
 export * from 'fluent_schema_args';
 export * from 'fluent_schema_content';
 export * from 'fluent_schema_key';
 export * from 'fluent_schema';
 export * from 'fluent_variable_options';
 export * from 'fluent_variable_type';
+//
+export * from 'front/fluent_reader_front';

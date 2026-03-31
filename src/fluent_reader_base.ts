@@ -3,8 +3,11 @@
 // Copyright (c) UNITEX Fluent Compiler Contributors
 // See README.md, COPYING.md, CONTRIBUTING.md and CONTRIBUTORS.md for details
 
-import fs from 'fs';
-import { FluentBundle, FluentResource, type Message } from '@fluent/bundle';
+import {
+  FluentBundle,
+  type FluentResource,
+  type Message,
+} from '@fluent/bundle';
 import { negotiateLanguages } from '@fluent/langneg';
 import type { FluentSchemaArgsAtKey } from 'fluent_schema_args';
 import type {
@@ -14,9 +17,8 @@ import type {
 } from 'fluent_schema_key';
 
 type LocaleCode = string;
-type FilePath = string;
 
-export class FluentReader {
+export abstract class FluentReaderBase {
   readonly bundles: ReadonlyMap<LocaleCode, FluentBundle>;
 
   readonly defaultLocaleCode: LocaleCode; // default
@@ -29,46 +31,41 @@ export class FluentReader {
 
   constructor(
     args: Readonly<{
-      translations: ReadonlyMap<LocaleCode, ReadonlyArray<FilePath>>;
+      resources: ReadonlyMap<LocaleCode, ReadonlyArray<FluentResource>>;
       defaultLocaleCode: LocaleCode;
       currentLocaleCode: LocaleCode;
       supportedLocaleCodes: ReadonlySet<LocaleCode>;
       fallbackLocaleCodes?: ReadonlyArray<LocaleCode>;
     }>,
   ) {
-    if (fs === undefined) {
-      throw new Error(
-        'FluentReader.constructor: can not be used from inside Browser environment, FileSystem (fs) module is required',
-      );
-    }
     if (args.supportedLocaleCodes.size === 0) {
       throw new Error(
-        'FluentReader.constructor: provided list of supported locale codes is empty',
+        'FluentReaderBase.constructor: provided list of supported locale codes is empty',
       );
     }
     if (!args.supportedLocaleCodes.has(args.defaultLocaleCode)) {
       throw new Error(
-        `FluentReader.constructor: default locale code "${args.defaultLocaleCode}" is not in the supported list "${[...args.supportedLocaleCodes].join(', ')}"`,
+        `FluentReaderBase.constructor: default locale code "${args.defaultLocaleCode}" is not in the supported list "${[...args.supportedLocaleCodes].join(', ')}"`,
       );
     }
     if (!args.supportedLocaleCodes.has(args.currentLocaleCode)) {
       throw new Error(
-        `FluentReader.constructor: current locale code "${args.currentLocaleCode}" is not in the supported list "${[...args.supportedLocaleCodes].join(', ')}"`,
+        `FluentReaderBase.constructor: current locale code "${args.currentLocaleCode}" is not in the supported list "${[...args.supportedLocaleCodes].join(', ')}"`,
       );
     }
     if (args.fallbackLocaleCodes !== undefined) {
       for (const localeCode of args.fallbackLocaleCodes) {
         if (!args.supportedLocaleCodes.has(localeCode)) {
           throw new Error(
-            `FluentReader.constructor: provided fallback locale code "${localeCode}" is not in the supported list "${[...args.supportedLocaleCodes].join(', ')}"`,
+            `FluentReaderBase.constructor: provided fallback locale code "${localeCode}" is not in the supported list "${[...args.supportedLocaleCodes].join(', ')}"`,
           );
         }
       }
     }
-    for (const [localeCode] of args.translations) {
+    for (const [localeCode] of args.resources) {
       if (!args.supportedLocaleCodes.has(localeCode)) {
         throw new Error(
-          `FluentReader.constructor: provided translations locale code "${localeCode}" is not in the supported list "${[...args.supportedLocaleCodes].join(', ')}"`,
+          `FluentReaderBase.constructor: provided resources locale code "${localeCode}" is not in the supported list "${[...args.supportedLocaleCodes].join(', ')}"`,
         );
       }
     }
@@ -80,26 +77,17 @@ export class FluentReader {
     this.updateLookupOrder();
 
     const bundles = Array.from(
-      args.translations.entries().map(([localeCode, filePaths]) => {
+      args.resources.entries().map(([localeCode, resources]) => {
         const bundle = new FluentBundle(localeCode);
-        filePaths
-          .map((filePath) => ({
-            filePath,
-            content: fs.readFileSync(filePath, 'utf8'),
-          }))
-          .map(({ filePath, content }) => ({
-            filePath,
-            resource: new FluentResource(content),
-          }))
-          .forEach(({ filePath, resource }) => {
-            const errors = bundle.addResource(resource);
-            if (errors.length > 0) {
-              console.warn(
-                `FluentReader.constructor: encounter errors while loading localization resource at file path "${filePath}":\n`,
-                errors.join('\n'),
-              );
-            }
-          });
+        resources.forEach((resource) => {
+          const errors = bundle.addResource(resource);
+          if (errors.length > 0) {
+            console.warn(
+              `FluentReaderBase.constructor: encounter errors while loading localization resource for locale code "${localeCode}":\n`,
+              errors.join('\n'),
+            );
+          }
+        });
         return [localeCode, bundle] as const;
       }),
     );
@@ -112,7 +100,7 @@ export class FluentReader {
   setCurrentLocaleCode(localeCode: LocaleCode): void {
     if (!this.supportedLocaleCodes.has(localeCode)) {
       throw new Error(
-        `FluentReader.setCurrentLocaleCode: locale code "${localeCode}" is not in the supported list "${[...this.supportedLocaleCodes].join(', ')}"`,
+        `FluentReaderBase.setCurrentLocaleCode: locale code "${localeCode}" is not in the supported list "${[...this.supportedLocaleCodes].join(', ')}"`,
       );
     }
     this._currentLocaleCode = localeCode;
@@ -132,7 +120,7 @@ export class FluentReader {
       for (const localeCode of localeCodes) {
         if (!this.supportedLocaleCodes.has(localeCode)) {
           throw new Error(
-            `FluentReader.setFallbackLocaleCodes: locale code "${localeCode}" is not in the supported list "${[...this.supportedLocaleCodes].join(', ')}"`,
+            `FluentReaderBase.setFallbackLocaleCodes: locale code "${localeCode}" is not in the supported list "${[...this.supportedLocaleCodes].join(', ')}"`,
           );
         }
       }
@@ -198,7 +186,7 @@ export class FluentReader {
     | { bundle: undefined; message: undefined } {
     if (String(key).length === 0) {
       throw new Error(
-        `FluentReader.findBundleAndMessage: localization lookup key "${String(key)}" is empty`,
+        `FluentReaderBase.findBundleAndMessage: localization lookup key "${String(key)}" is empty`,
       );
     }
     if (args?.localeCode !== undefined) {

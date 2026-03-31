@@ -28,8 +28,14 @@
     "lint_format_fix_all": "yarn lint_fix_all && yarn format_fix_all",
     "test": "bun scripts/test.ts"
   },
-  "main": "dist/main.js",
-  "types": "dist/main.d.ts",
+  "main": {
+    "node": "dist/back/main_back.js",
+    "default": "dist/back/main_front.js"
+  },
+  "types": {
+    "node": "dist/front/main_back.d.ts",
+    "default": "dist/front/main_front.d.ts"
+  },
   "files": [
     "dist/",
     "third_party_licenses/",
