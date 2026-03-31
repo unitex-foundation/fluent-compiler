@@ -24,4 +24,4 @@ export * from 'fluent_schema';
 export * from 'fluent_variable_options';
 export * from 'fluent_variable_type';
 //
-export * from 'front/fluent_reader_front';
+export * from 'front/fluent_reader';

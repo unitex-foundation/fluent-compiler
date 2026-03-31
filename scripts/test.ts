@@ -4,7 +4,7 @@
 // See README.md, COPYING.md, CONTRIBUTING.md and CONTRIBUTORS.md for details
 
 import fs from 'fs';
-import { FluentReader } from 'fluent_reader_back';
+import { FluentReader } from 'back/fluent_reader';
 import { exampleMessages } from 'resources/example_messages';
 import { compile } from 'compiler';
 import {
