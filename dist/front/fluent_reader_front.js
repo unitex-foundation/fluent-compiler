@@ -3,5 +3,5 @@
 // Copyright (c) UNITEX Fluent Compiler Contributors
 // See README.md, COPYING.md, CONTRIBUTING.md and CONTRIBUTORS.md for details
 import { FluentReaderBase } from '../fluent_reader_base.js';
-export class FluentReader extends FluentReaderBase {
+export class FluentReaderFront extends FluentReaderBase {
 }

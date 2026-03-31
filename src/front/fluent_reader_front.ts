@@ -5,4 +5,4 @@
 
 import { FluentReaderBase } from 'fluent_reader_base';
 
-export class FluentReader extends FluentReaderBase {}
+export class FluentReaderFront extends FluentReaderBase {}

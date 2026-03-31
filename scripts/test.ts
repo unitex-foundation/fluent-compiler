@@ -4,7 +4,7 @@
 // See README.md, COPYING.md, CONTRIBUTING.md and CONTRIBUTORS.md for details
 
 import fs from 'fs';
-import { FluentReader } from 'back/fluent_reader';
+import { FluentReaderBack } from 'back/fluent_reader_back';
 import { exampleMessages } from 'resources/example_messages';
 import { compile } from 'compiler';
 import {
@@ -37,7 +37,7 @@ fs.writeFileSync(filePaths.exampleMessages, compiledExampleEn);
 fs.writeFileSync(filePaths.namespacedMessagesEn, compiledNamespacedEn);
 fs.writeFileSync(filePaths.namespacedMessagesRu, compiledNamespacedRu);
 
-const reader = new FluentReader({
+const reader = new FluentReaderBack({
   currentLocaleCode: 'en',
   defaultLocaleCode: 'en',
   supportedLocaleCodes: new Set(['en', 'ru']),

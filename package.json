@@ -29,12 +29,12 @@
     "test": "bun scripts/test.ts"
   },
   "main": {
-    "node": "dist/back/main.js",
-    "default": "dist/back/main.js"
+    "node": "dist/back/main_back.js",
+    "default": "dist/front/main_front.js"
   },
   "types": {
-    "node": "dist/front/main.d.ts",
-    "default": "dist/front/main.d.ts"
+    "node": "dist/back/main_back.d.ts",
+    "default": "dist/front/main_front.d.ts"
   },
   "files": [
     "dist/",

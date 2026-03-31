@@ -97,9 +97,13 @@ Compiler from TypeScript to Fluent Translation List (FTL)
    (it provides simple barebone functionality):
 
    ```ts
-   import { FluentReader } from '@unitex/fluent-compiler';
+   // in the Node environment
+   import { FluentReaderBack } from '@unitex/fluent-compiler';
 
-   const reader = new FluentReader({
+   // or in the Browser environment
+   import { FluentReaderFront } from '@unitex/fluent-compiler';
+
+   const reader = new FluentReaderBack({
      currentLocaleCode: 'en-GB',
      defaultLocaleCode: 'en-GB',
      fallbackLocaleCodes: ['en-US']

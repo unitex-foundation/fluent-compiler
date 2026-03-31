@@ -1,7 +1,7 @@
 import { FluentReaderBase } from '../fluent_reader_base.js';
 type LocaleCode = string;
 type FilePath = string;
-export declare class FluentReader extends FluentReaderBase {
+export declare class FluentReaderBack extends FluentReaderBase {
     constructor(args: Readonly<{
         translations: ReadonlyMap<LocaleCode, ReadonlyArray<FilePath>>;
         defaultLocaleCode: LocaleCode;

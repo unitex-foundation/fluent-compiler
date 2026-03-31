@@ -10,7 +10,7 @@ import { FluentReaderBase } from 'fluent_reader_base';
 type LocaleCode = string;
 type FilePath = string;
 
-export class FluentReader extends FluentReaderBase {
+export class FluentReaderBack extends FluentReaderBase {
   constructor(
     args: Readonly<{
       translations: ReadonlyMap<LocaleCode, ReadonlyArray<FilePath>>;
