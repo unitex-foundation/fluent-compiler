@@ -28,13 +28,21 @@
     "lint_format_fix_all": "yarn lint_fix_all && yarn format_fix_all",
     "test": "bun scripts/test.ts"
   },
-  "main": {
-    "node": "dist/back/main_back.js",
-    "default": "dist/front/main_front.js"
-  },
-  "types": {
-    "node": "dist/back/main_back.d.ts",
-    "default": "dist/front/main_front.d.ts"
+  "exports": {
+    ".": {
+      "node": {
+        "types": "./dist/back/main_back.d.ts",
+        "default": "./dist/back/main_back.js"
+      },
+      "default": {
+        "types": "./dist/front/main_front.d.ts",
+        "default": "./dist/front/main_front.js"
+      }
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
+    }
   },
   "files": [
     "dist/",

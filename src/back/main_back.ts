@@ -24,4 +24,5 @@ export * from 'fluent_schema';
 export * from 'fluent_variable_options';
 export * from 'fluent_variable_type';
 //
-export * from 'back/fluent_reader_back';
+// TODO: this approach is not reliable as unexpected class may be exported
+// export * from 'back/fluent_reader_back';

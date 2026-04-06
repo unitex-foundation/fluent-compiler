@@ -78,7 +78,7 @@ Compiler from TypeScript to Fluent Translation List (FTL)
    (only in default locale):
 
    ```ts
-   declare module '@unitex/fluent-compiler/dist/fluent_schema' {
+   declare module '@unitex/fluent-compiler/fluent_schema' {
      type CustomMessages = typeof messagesEn & typeof namespacedMessagesEn;
      interface FluentSchema extends CustomMessages {}
    }
@@ -98,10 +98,10 @@ Compiler from TypeScript to Fluent Translation List (FTL)
 
    ```ts
    // in the Node environment
-   import { FluentReaderBack } from '@unitex/fluent-compiler';
+   import { FluentReaderBack } from '@unitex/fluent-compiler/back/fluent_reader_back';
 
    // or in the Browser environment
-   import { FluentReaderFront } from '@unitex/fluent-compiler';
+   import { FluentReaderFront } from '@unitex/fluent-compiler/front/fluent_reader_front';
 
    const reader = new FluentReaderBack({
      currentLocaleCode: 'en-GB',

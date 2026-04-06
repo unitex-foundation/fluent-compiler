@@ -23,4 +23,5 @@ export * from '../fluent_schema.js';
 export * from '../fluent_variable_options.js';
 export * from '../fluent_variable_type.js';
 //
-export * from '../front/fluent_reader_front.js';
+// TODO: this approach is not reliable as unexpected class may be exported
+// export * from '../front/fluent_reader_front.js';

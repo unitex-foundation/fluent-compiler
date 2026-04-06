@@ -17,4 +17,3 @@ export * from '../fluent_schema_key.js';
 export * from '../fluent_schema.js';
 export * from '../fluent_variable_options.js';
 export * from '../fluent_variable_type.js';
-export * from '../front/fluent_reader_front.js';

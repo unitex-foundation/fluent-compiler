@@ -34,6 +34,7 @@
   "js/ts.preferences.importModuleSpecifier": "non-relative",
   "js/ts.preferences.quoteStyle": "single",
   "js/ts.tsdk.path": "node_modules/typescript/lib",
+  "js/ts.tsdk.promptToUseWorkspaceVersion": true,
   "js/ts.tsserver.node.path": "node",
   "js/ts.tsserver.watchOptions": { "watchFile": "useFsEvents" },
   "js/ts.updateImportsOnFileMove.enabled": "always",
