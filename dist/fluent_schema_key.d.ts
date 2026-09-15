@@ -1,11 +1,11 @@
 import type { FluentDefinedMessage } from './fluent_defined_message.js';
-import type { FluentSchemaContent } from './fluent_schema_content.js';
-export type FluentSchemaKey = keyof FluentSchemaContent;
+import type { FluentSchema } from './fluent_schema.js';
+export type FluentSchemaKey = keyof FluentSchema;
 type StringWithVariable = `${string}{$${string}}${string}`;
 export type FluentSchemaKeyWithVariables = {
-    [K in FluentSchemaKey]: FluentSchemaContent[K] extends StringWithVariable ? K : FluentSchemaContent[K] extends FluentDefinedMessage ? FluentSchemaContent[K]['value'] extends StringWithVariable ? K : never : never;
+    [K in FluentSchemaKey]: FluentSchema[K] extends StringWithVariable ? K : FluentSchema[K] extends FluentDefinedMessage ? FluentSchema[K]['value'] extends StringWithVariable ? K : never : never;
 }[FluentSchemaKey];
 export type FluentSchemaKeyWitoutVariables = {
-    [K in FluentSchemaKey]: FluentSchemaContent[K] extends `${string}{$${string}}${string}` ? never : FluentSchemaContent[K] extends FluentDefinedMessage ? FluentSchemaContent[K]['value'] extends StringWithVariable ? never : K : K;
+    [K in FluentSchemaKey]: FluentSchema[K] extends `${string}{$${string}}${string}` ? never : FluentSchema[K] extends FluentDefinedMessage ? FluentSchema[K]['value'] extends StringWithVariable ? never : K : K;
 }[FluentSchemaKey];
 export {};
