@@ -74,13 +74,13 @@ Compiler from TypeScript to Fluent Translation List (FTL)
    ```
 
 1. To enable autocompletion you need to provide a message schema by redeclaring
-   `FluentSchema` interface with your defined message lists
+   `FluentProvidedSchema` interface with your defined message lists
    (only in default locale):
 
    ```ts
    declare module '@unitex/fluent-compiler/fluent_schema' {
      type CustomMessages = typeof messagesEn & typeof namespacedMessagesEn;
-     interface FluentSchema extends CustomMessages {}
+     interface FluentProvidedSchema extends CustomMessages {}
    }
    ```
 

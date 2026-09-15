@@ -5,7 +5,7 @@
 
 import type { FluentDefinedMessage } from 'fluent_defined_message';
 import type { FluentMessageOptions } from 'fluent_message_options';
-import type { FluentSchemaContent } from 'fluent_schema_content';
+import type { FluentSchema } from 'fluent_schema';
 import type { FluentSchemaKey } from 'fluent_schema_key';
 import type { FluentVariableOptions } from 'fluent_variable_options';
 
@@ -41,12 +41,12 @@ type VariableArgs<
     unknown;
 
 export type FluentSchemaArgsAtKey<K extends FluentSchemaKey> =
-  FluentSchemaContent[K] extends string
-    ? VariableArgs<FluentSchemaContent[K], undefined>
-    : FluentSchemaContent[K] extends FluentDefinedMessage
+  FluentSchema[K] extends string
+    ? VariableArgs<FluentSchema[K], undefined>
+    : FluentSchema[K] extends FluentDefinedMessage
       ? VariableArgs<
-          FluentSchemaContent[K]['value'],
-          FluentSchemaContent[K]['options']
+          FluentSchema[K]['value'],
+          FluentSchema[K]['options']
         >
       : never;
 

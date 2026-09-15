@@ -12,10 +12,10 @@ import {
   namespacedMessagesRu,
 } from 'resources/namespaced_messages';
 
-declare module 'fluent_schema' {
+declare module 'fluent_provided_schema' {
   type CustomMessages = typeof exampleMessages & typeof namespacedMessagesEn;
 
-  interface FluentSchema extends CustomMessages {}
+  interface FluentProvidedSchema extends CustomMessages {}
 }
 
 const filePaths = Object.freeze({
