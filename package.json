@@ -5,7 +5,7 @@
     "name": "Grigorii Lutkov",
     "email": "grigorii@lutkov.dev"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://trulab.ru/unitex/fluent-compiler",
   "repository": {
     "type": "git",

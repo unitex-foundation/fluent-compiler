@@ -5,7 +5,7 @@
 - **Grigorii Lutkov** (Григорий Лутков)
 - email: grigorii@lutkov.dev, grigorii.lutkov@unitex.foundation, grigorii.lutkov@trutex.ru, friend.lga@gmail.com
 - nickname: grigorii-lutkov, grigorii_lutkov, grigorii.lutkov, friend-lga, friend_lga, friend.lga
-- social: [telegram](t.me/grigorii_lutkov), [discord](discordapp.com/users/grigorii_lutkov), [trulab](trulab.ru/grigorii-lutkov), [github](github.com/friend-lga), [gitlab](gitlab.com/grigorii-lutkov), [gitea](gitea.com/grigorii-lutkov)
+- social: [telegram](t.me/grigorii_lutkov), [discord](discordapp.com/users/grigorii_lutkov), [trulab](trulab.ru/grigorii-lutkov), [github](github.com/grigorii-lutkov), [gitlab](gitlab.com/grigorii-lutkov), [gitea](gitea.com/grigorii-lutkov)
 
 ## Individuals
 

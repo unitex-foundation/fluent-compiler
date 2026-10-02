@@ -166,6 +166,13 @@ Inspired by WebDevSimplified
 
 [Read Here](./COPYING.md)
 
+## Repos / Mirrors
+
+- [TRULAB](https://trulab.ru/unitex/fluent-compiler)
+- [GitHub](https://github.com/unitex-foundation/fluent-compiler)
+- [GitLab](https://gitlab.com/unitex-foundation/fluent-compiler)
+- [Gitea](https://gitea.com/unitex/fluent-compiler)
+
 <!----------------------------------------------------------------------------->
 
 <!-- <style>
