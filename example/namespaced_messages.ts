@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: MIT
-// Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
+// Copyright (c) 2025 Grigorii Lutkov <grigorii@lutkov.dev>
 // Copyright (c) UNITEX Fluent Compiler Contributors
 // See README.md, COPYING.md, CONTRIBUTING.md and CONTRIBUTORS.md for details
 
-import { defineFluentMessage as dm } from 'fluent_message';
+import { defineFluentMessage as dm } from '@unitex/fluent-compiler/fluent_message';
 import {
   defineFluentMessageListWithPrefix,
   type FluentMessageList,
-} from 'fluent_message_list';
+} from '@unitex/fluent-compiler/fluent_message_list';
 
 const EXAMPLE_NAMESPACE = 'example_';
 

@@ -4,7 +4,6 @@
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "alwaysStrict": true,
-    "baseUrl": "./src",
     "composite": false,
     "declaration": true,
     "declarationMap": false,
@@ -22,30 +21,17 @@
     "outDir": "./dist",
     "removeComments": false,
     "resolveJsonModule": true,
-    "rootDir": "./",
+    "rootDir": "./src",
     "skipLibCheck": true,
     "sourceMap": false,
     "strict": true,
     "target": "ESNext",
     "types": ["node"],
     "useDefineForClassFields": true,
-    "verbatimModuleSyntax": true,
-    "paths": {
-      "resources/*": ["../resources/*"]
-    }
+    "verbatimModuleSyntax": true
   },
   "tsc-alias": {
     "resolveFullPaths": true
   },
-  "include": ["**/*.ts", "**/*.js"],
-  "exclude": [
-    ".git",
-    ".vscode",
-    ".yarn",
-    "dist",
-    "node_modules",
-    "scripts",
-    "temp",
-    "third_party_licenses"
-  ]
+  "include": ["./src/**/*.ts"]
 }

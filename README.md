@@ -125,7 +125,7 @@ Compiler from TypeScript to Fluent Translation List (FTL)
 
 1. Optional: write your own `t` function inspired by `FluentReader`. See implementation in the [`src/fluent_reader.ts`](src/fluent_reader.ts) file
 
-1. Optional: take a look at more example messages at [`resources/example_messages.ts`](resources/example_messages.ts) file
+1. Optional: take a look at more example messages at [`example/messages.ts`](example/messages.ts) file
 
 1. Optional: learn more about [`Project Fluent`](projectfluent.org)
 

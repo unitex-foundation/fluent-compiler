@@ -2,7 +2,7 @@
 
 ## Project
 
-- Grigorii Lutkov \<friend.lga@gmail.com\>
+- Grigorii Lutkov \<grigorii@lutkov.dev\>
 - status: maintained
 - files: `**/*`
 

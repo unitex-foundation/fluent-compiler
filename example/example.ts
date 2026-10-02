@@ -1,30 +1,30 @@
 // SPDX-License-Identifier: MIT
-// Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
+// Copyright (c) 2025 Grigorii Lutkov <grigorii@lutkov.dev>
 // Copyright (c) UNITEX Fluent Compiler Contributors
 // See README.md, COPYING.md, CONTRIBUTING.md and CONTRIBUTORS.md for details
 
 import fs from 'fs';
-import { FluentReaderBack } from 'back/fluent_reader_back';
-import { exampleMessages } from 'resources/example_messages';
-import { compile } from 'compiler';
+import { FluentReaderBack } from '@unitex/fluent-compiler/back/fluent_reader_back';
+import { messages as messagesEn } from 'example/messages';
+import { compile } from '@unitex/fluent-compiler/compiler';
 import {
   namespacedMessagesEn,
   namespacedMessagesRu,
-} from 'resources/namespaced_messages';
+} from 'example/namespaced_messages';
 
-declare module 'fluent_provided_schema' {
-  type CustomMessages = typeof exampleMessages & typeof namespacedMessagesEn;
+declare module '@unitex/fluent-compiler/fluent_provided_schema' {
+  type CustomMessages = typeof messagesEn & typeof namespacedMessagesEn;
 
   interface FluentProvidedSchema extends CustomMessages {}
 }
 
 const filePaths = Object.freeze({
-  exampleMessages: 'temp/en/example_messages.ftl',
+  messagesEn: 'temp/en/messages.ftl',
   namespacedMessagesEn: 'temp/en/namespaced_messages.ftl',
   namespacedMessagesRu: 'temp/ru/namespaced_messages.ftl',
 } as const);
 
-const compiledExampleEn = compile(exampleMessages, true);
+const compiledMessagesEn = compile(messagesEn, true);
 const compiledNamespacedEn = compile(namespacedMessagesEn, true);
 const compiledNamespacedRu = compile(namespacedMessagesRu, true);
 
@@ -33,7 +33,7 @@ if (fs.existsSync('temp')) {
 }
 fs.mkdirSync('temp/en', { recursive: true });
 fs.mkdirSync('temp/ru', { recursive: true });
-fs.writeFileSync(filePaths.exampleMessages, compiledExampleEn);
+fs.writeFileSync(filePaths.messagesEn, compiledMessagesEn);
 fs.writeFileSync(filePaths.namespacedMessagesEn, compiledNamespacedEn);
 fs.writeFileSync(filePaths.namespacedMessagesRu, compiledNamespacedRu);
 
@@ -42,7 +42,7 @@ const reader = new FluentReaderBack({
   defaultLocaleCode: 'en',
   supportedLocaleCodes: new Set(['en', 'ru']),
   translations: new Map([
-    ['en', [filePaths.exampleMessages, filePaths.namespacedMessagesEn]],
+    ['en', [filePaths.messagesEn, filePaths.namespacedMessagesEn]],
     ['ru', [filePaths.namespacedMessagesRu]],
   ]),
 });

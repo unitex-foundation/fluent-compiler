@@ -3,30 +3,30 @@
   "description": "Compiler from TypeScript to Fluent Translation List (FTL)",
   "author": {
     "name": "Grigorii Lutkov",
-    "email": "friend.lga@gmail.com"
+    "email": "grigorii@lutkov.dev"
   },
-  "version": "0.0.1",
+  "version": "1.0.0",
   "homepage": "https://trulab.ru/unitex/fluent-compiler",
   "repository": {
     "type": "git",
-    "url": "https://trulab.ru/unitex/fluent-compiler.git"
+    "url": "git+https://trulab.ru/unitex/fluent-compiler.git"
   },
   "bugs": {
     "url": "https://trulab.ru/unitex/fluent-compiler/-/issues"
   },
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf dist/ && tsc --project tsconfig_build.json && tsc-alias -p tsconfig_build.json",
+    "build": "rm -rf dist/ && tsc && tsc-alias",
     "lint": "eslint --cache --rule 'import/order: [warn, { newlines-between: never }]' --ext=js,mjs,cjs,ts,mts,cts,d.ts",
-    "lint_all": "yarn lint './**/*.{js,mjs,cjs,ts,mts,cts,d.ts}'",
-    "lint_fix": "yarn lint --fix",
-    "lint_fix_all": "yarn lint_all --fix",
+    "lint_all": "bun run lint './**/*.{js,mjs,cjs,ts,mts,cts,d.ts}'",
+    "lint_fix": "bun run lint --fix",
+    "lint_fix_all": "bun run lint_all --fix",
     "format": "prettier --ignore-unknown --check",
-    "format_all": "yarn format ./",
-    "format_fix": "yarn format --write",
-    "format_fix_all": "yarn format_all --write",
-    "lint_format_fix_all": "yarn lint_fix_all && yarn format_fix_all",
-    "test": "bun scripts/test.ts"
+    "format_all": "bun run format ./",
+    "format_fix": "bun run format --write",
+    "format_fix_all": "bun run format_all --write",
+    "lint_format_fix_all": "bun run lint_fix_all && bun run format_fix_all",
+    "test": "bun example/example.ts"
   },
   "exports": {
     ".": {
@@ -55,26 +55,52 @@
     "third_party_licenses.md"
   ],
   "dependencies": {
-    "@fluent/bundle": "^0.19.0",
-    "@fluent/dedent": "^0.5.0",
-    "@fluent/langneg": "^0.7.0"
+    "@fluent/bundle": "0.19.*",
+    "@fluent/dedent": "0.5.*",
+    "@fluent/langneg": "0.7.*"
   },
   "devDependencies": {
-    "@stylistic/eslint-plugin": "4.4.1",
-    "@types/bun": "1",
-    "@types/node": "22.18.0",
-    "@typescript-eslint/parser": "8.34.1",
-    "bun": "1.2.17",
-    "eslint": "9.29.0",
-    "eslint-import-resolver-typescript": "4.4.3",
+    "@stylistic/eslint-plugin": "5.10.0",
+    "@types/bun": "1.4.2",
+    "@types/node": "26.0.0",
+    "@typescript-eslint/parser": "8.70.1",
+    "bun": "1.4.2",
+    "eslint": "10.11.0",
+    "eslint-import-resolver-typescript": "4.4.5",
     "eslint-plugin-import": "2.32.0",
-    "eslint-plugin-unused-imports": "4.1.4",
-    "globals": "16.2.0",
-    "prettier": "3.5.3",
-    "tsc-alias": "1.8.16",
-    "typescript": "5.8.3",
-    "typescript-eslint": "8.34.1"
+    "eslint-plugin-unused-imports": "4.4.1",
+    "globals": "17.12.0",
+    "prettier": "3.9.9",
+    "tsc-alias": "1.9.5",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.70.1"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "v26.0.0",
+      "onFail": "warn"
+    },
+    "packageManager": {
+      "name": "bun",
+      "version": "1.4.2",
+      "onFail": "warn"
+    }
   },
   "type": "module",
-  "packageManager": "yarn@4.12.0"
+  "keywords": [
+    "fluent",
+    "compiler",
+    "transpiler",
+    "i18n",
+    "l10n",
+    "internationalization",
+    "internationalisation",
+    "localization",
+    "localisation",
+    "translation",
+    "language",
+    "frontend",
+    "backend"
+  ]
 }

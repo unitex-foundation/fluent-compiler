@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: MIT
-// Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
+// Copyright (c) 2025 Grigorii Lutkov <grigorii@lutkov.dev>
 // Copyright (c) UNITEX Fluent Compiler Contributors
 // See README.md, COPYING.md, CONTRIBUTING.md and CONTRIBUTORS.md for details
 
-import type { FluentVariableOptions } from 'fluent_variable_options';
-import { FluentVariableType } from 'fluent_variable_type';
-import { parseVariableType, searchVariableInstances } from 'parser';
-import type { FluentMessageList } from 'fluent_message_list';
-import type { FluentMessageValue } from 'fluent_message_value';
+import type { FluentVariableOptions } from './fluent_variable_options';
+import { FluentVariableType } from './fluent_variable_type';
+import { parseVariableType, searchVariableInstances } from './parser';
+import type { FluentMessageList } from './fluent_message_list';
+import type { FluentMessageValue } from './fluent_message_value';
 
 // TODO:
 // - support attributes

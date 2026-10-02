@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// Copyright (c) 2026 Grigorii Lutkov <friend.lga@gmail.com>
+// Copyright (c) 2026 Grigorii Lutkov <grigorii@lutkov.dev>
 // Copyright (c) UNITEX Fluent Compiler Contributors
 // See README.md, COPYING.md, CONTRIBUTING.md and CONTRIBUTORS.md for details
 
@@ -9,12 +9,12 @@ import {
   type Message,
 } from '@fluent/bundle';
 import { negotiateLanguages } from '@fluent/langneg';
-import type { FluentSchemaArgsAtKey } from 'fluent_schema_args';
+import type { FluentSchemaArgsAtKey } from './fluent_schema_args';
 import type {
   FluentSchemaKey,
   FluentSchemaKeyWithVariables,
   FluentSchemaKeyWitoutVariables,
-} from 'fluent_schema_key';
+} from './fluent_schema_key';
 
 type LocaleCode = string;
 

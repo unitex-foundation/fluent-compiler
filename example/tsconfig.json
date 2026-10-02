@@ -1,0 +1,12 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../dist",
+    "rootDir": "../",
+    "paths": {
+      "example/*": ["./*"],
+      "@unitex/fluent-compiler/*": ["../src/*"]
+    }
+  },
+  "include": ["**/*.ts", "../src/**/*.ts"]
+}

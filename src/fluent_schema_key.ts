@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
-// Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
+// Copyright (c) 2025 Grigorii Lutkov <grigorii@lutkov.dev>
 // Copyright (c) UNITEX Fluent Compiler Contributors
 // See README.md, COPYING.md, CONTRIBUTING.md and CONTRIBUTORS.md for details
 
-import type { FluentDefinedMessage } from 'fluent_defined_message';
-import type { FluentSchema } from 'fluent_schema';
+import type { FluentDefinedMessage } from './fluent_defined_message';
+import type { FluentSchema } from './fluent_schema';
 
 export type FluentSchemaKey = keyof FluentSchema;
 
@@ -21,7 +21,9 @@ export type FluentSchemaKeyWithVariables = {
 }[FluentSchemaKey];
 
 export type FluentSchemaKeyWitoutVariables = {
-  [K in FluentSchemaKey]: FluentSchema[K] extends `${string}{$${string}}${string}`
+  [
+    K in FluentSchemaKey
+  ]: FluentSchema[K] extends `${string}{$${string}}${string}`
     ? never
     : FluentSchema[K] extends FluentDefinedMessage
       ? FluentSchema[K]['value'] extends StringWithVariable

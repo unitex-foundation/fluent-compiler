@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// Copyright (c) 2025 Grigorii Lutkov <friend.lga@gmail.com>
+// Copyright (c) 2025 Grigorii Lutkov <grigorii@lutkov.dev>
 // Copyright (c) UNITEX Fluent Compiler Contributors
 // See README.md, COPYING.md, CONTRIBUTING.md and CONTRIBUTORS.md for details
 
@@ -32,7 +32,9 @@ function getConfigForSubdir(dirName) {
       ecmaVersion: 'latest',
       sourceType: 'module',
       parserOptions: {
-        projectService: true,
+        projectService: {
+          allowDefaultProject: ['eslint.config.js'],
+        },
         tsconfigRootDir: import.meta.dirname,
       },
       globals: {
@@ -61,7 +63,7 @@ function getConfigForSubdir(dirName) {
       'no-empty': 'warn',
       'curly': ['warn', 'multi-line', 'consistent'],
       'quotes': ['warn', 'single', { avoidEscape: true }],
-      'no-restricted-imports': ['error', { patterns: ['.*'] }],
+      'no-restricted-imports': 'off',
       'object-shorthand': ['warn', 'always', { avoidQuotes: true }],
       'arrow-body-style': ['warn', 'as-needed'],
 
@@ -187,16 +189,18 @@ function getConfigForSubdir(dirName) {
 
 export default defineConfig(
   globalIgnores([
-    // Common
-    '**/.DS_Store',
-    '**/.thumbs.db',
     // Git
     '.git',
     // Node
     'node_modules',
+    'package-lock.json',
+    // Bun
+    'bun.lock',
     // Yarn
     '.yarn',
     'yarn.lock',
+    // PNPM
+    'pnpm-lock.yaml',
     // Build
     'dist',
     // ESLint cache
@@ -216,6 +220,14 @@ export default defineConfig(
     '*.code-workspace',
     // Licenses
     'third_party_licenses',
+    // Common OS files
+    '**/.DS_Store',
+    '**/._*',
+    '**/.Trashes',
+    '**/.Spotlight-V100',
+    '**/Thumbs.db',
+    '**/*.tmp',
   ]),
   getConfigForSubdir(),
+  getConfigForSubdir('example'),
 );
