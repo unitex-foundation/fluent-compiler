@@ -2,7 +2,7 @@
 
 ## Project
 
-- Grigorii Lutkov \<grigorii@lutkov.dev\>
+- grigorii-lutkov
 - status: maintained
 - files: `**/*`
 
@@ -20,24 +20,22 @@ This is a list of people maintaining this project. It is sorted alphabetically b
 
 ```
 - **Subsystem Name**
-- Full Name \<address@example.com\>
+- individual-id // from CONTRIBUTORS.md
 - status: supported | maintained | irregular | orphan | obsolete
 - files: `glob/pattern/1`, `glob/pattern/2`, ...
 ```
 
 Example:
 
-```
 - **api**
-- John Smith \<john.smith@example.com\>
+- john-smith
 - status: maintained
 - files: `api/*`
-```
 
 Allowed statuses:
 
-- supported: someone is actually paid to look after it
-- maintained: someone actually looks after it
-- irregular: it has a maintainer but they don't have much time to look after it
-- orphan: no current maintainer [but maybe you could take the role as you write your new code]
-- obsolete: old code which has been replaced by a better system and you should be using that
+- **supported**: someone is actually paid to look after it
+- **maintained**: someone actually looks after it
+- **irregular**: it has a maintainer but they don't have much time to look after it
+- **orphan**: no current maintainer [but maybe you could take the role as you write your new code]
+- **obsolete**: old code which has been replaced by a better system and you should be using that

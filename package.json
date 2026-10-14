@@ -1,11 +1,12 @@
 {
   "name": "@unitex/fluent-compiler",
+  "productName": "UNITEX Fluent Compiler",
   "description": "Compiler from TypeScript to Fluent Translation List (FTL)",
   "author": {
     "name": "Grigorii Lutkov",
     "email": "grigorii@lutkov.dev"
   },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage": "https://trulab.ru/unitex/fluent-compiler",
   "repository": {
     "type": "git",
@@ -89,7 +90,9 @@
   },
   "type": "module",
   "keywords": [
+    "unitex",
     "fluent",
+    "ftl",
     "compiler",
     "transpiler",
     "i18n",

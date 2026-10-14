@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it using these metadata.
+type: software
+title: UNITEX Fluent Compiler
+abstract: Compiler from TypeScript to Fluent Translation List (FTL)
+authors:
+  - given-names: Grigorii
+    family-names: Lutkov
+    email: grigorii@lutkov.dev
+version: 1.0.2
+date-released: 2026-10-14
+license: MIT
+keywords:
+  - unitex
+  - fluent
+  - ftl
+  - compiler
+  - transpiler
+  - i18n
+  - l10n
+  - internationalization
+  - internationalisation
+  - localization
+  - localisation
+  - translation
+  - language
+  - frontend
+  - backend
+url: https://trulab.ru/unitex/fluent-compiler
+repository: https://trulab.ru/unitex/fluent-compiler
+repository-code: https://trulab.ru/unitex/fluent-compiler
+# repository-mirrors:
+#   - https://github.com/unitex-foundation/fluent-compiler
+#   - https://gitlab.com/unitex-foundation/fluent-compiler
+#   - https://gitea.com/unitex/fluent-compiler
