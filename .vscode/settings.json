@@ -38,6 +38,7 @@
     "**/Thumbs.db": true,
     "dist": true,
     "node_modules": true,
+    "package-lock.json": true,
     "temp": true,
     "third_party_licenses": true
   },
@@ -63,6 +64,7 @@
     "**/Thumbs.db": true,
     "dist": true,
     "node_modules": true,
+    "package-lock.json": true,
     "temp": true,
     "third_party_licenses": true
   },
