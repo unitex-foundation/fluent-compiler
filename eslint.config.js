@@ -3,7 +3,6 @@
 // Copyright (c) UNITEX Fluent Compiler Contributors
 // See README.md, COPYING.md, CONTRIBUTING.md and CONTRIBUTORS.md for details
 
-import eslint from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
 import importPlugin from 'eslint-plugin-import';
 import unusedImportsPlugin from 'eslint-plugin-unused-imports';
@@ -48,7 +47,6 @@ function getConfigForSubdir(dirName) {
       },
     },
     extends: [
-      eslint.configs.recommended,
       tseslint.configs.recommendedTypeChecked,
       // stylistic.configs.recommended,
       importPlugin.flatConfigs.recommended,

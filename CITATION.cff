@@ -7,8 +7,8 @@ authors:
   - given-names: Grigorii
     family-names: Lutkov
     email: grigorii@lutkov.dev
-version: 1.0.2
-date-released: 2026-10-14
+version: 1.0.3
+date-released: 2026-10-15
 license: MIT
 keywords:
   - unitex
